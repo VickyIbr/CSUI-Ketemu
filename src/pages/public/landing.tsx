@@ -69,11 +69,6 @@ export function LandingPage() {
                       <Badge variant="secondary" className="text-xs">
                         {event.category}
                       </Badge>
-                      {isCourse && (
-                        <Badge className="bg-ink-blue text-white text-xs">
-                          🔒 Tertutup
-                        </Badge>
-                      )}
                       {isWebinar && (
                         <Badge variant="outline" className="text-xs">
                           🌐 Online
