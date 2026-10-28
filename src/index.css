@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+@import "@fontsource/instrument-sans/400.css";
+@import "@fontsource/instrument-sans/500.css";
+@import "@fontsource/instrument-sans/600.css";
+@import "@fontsource/instrument-sans/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-paper-2: #f6f7f8;
+  --color-ink: #14161a;
+  --color-ink-soft: #5b6470;
+  --color-line: #e4e6e9;
+  --color-line-strong: #c9ced6;
+  --color-highlighter: #ffd43b;
+  --color-ink-blue: #1d3fd1;
+  --color-ink-blue-soft: #eef1fe;
+  --color-success: #0f7b4f;
+  --color-danger: #c02626;
+  --color-warning: #9a5b00;
+
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --shadow-overlay: 0 1px 2px rgb(20 22 26 / 0.06), 0 12px 32px rgb(20 22 26 / 0.10);
+}
+
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --primary: var(--color-ink-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-paper-2);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-paper-2);
+  --muted-foreground: var(--color-ink-soft);
+  --accent: var(--color-ink-blue-soft);
+  --accent-foreground: var(--color-ink-blue);
+  --destructive: var(--color-danger);
+  --border: var(--color-line);
+  --input: var(--color-line);
+  --ring: var(--color-ink-blue);
+  --radius: 10px;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,4 +56,19 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
 }
+
+.text-display { font-size: 56px; line-height: 1.05; letter-spacing: -0.03em; }
+.text-h1 { font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; }
+.text-h2 { font-size: 28px; line-height: 1.2; letter-spacing: -0.02em; }
+.text-h3 { font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; }
+.text-body-lg { font-size: 18px; line-height: 1.55; }
+.text-body { font-size: 16px; line-height: 1.55; }
+.text-body-sm { font-size: 14px; line-height: 1.5; }
+.text-caption { font-size: 13px; line-height: 1.45; letter-spacing: 0.01em; }
+.text-micro { font-size: 12px; line-height: 1.4; letter-spacing: 0.02em; }
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
