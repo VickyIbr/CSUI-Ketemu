@@ -143,7 +143,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-[700px] px-5 text-center">
           <h2 className="text-2xl font-bold text-ink">Event Mendatang</h2>
           <p className="mt-1 text-sm text-ink-soft">Jangan sampai kelewatan event-event seru ini.</p>
-          <div className="mt-8 space-y-3 text-left">
+          <div className="mt-4 space-y-2 text-left">
             {upcomingEvents.slice(0, 4).map((event) => {
               const date = new Date(event.startDate)
               const day = date.getDate()
@@ -152,15 +152,15 @@ export function LandingPage() {
                 <Link
                   key={event.id}
                   to={`/events/${event.slug}`}
-                  className="flex items-center gap-4 rounded-lg border border-border bg-card p-3 transition-colors hover:bg-muted/50"
+                  className="flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-2 transition-colors hover:bg-muted/50"
                 >
-                  <div className="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-md bg-ink-blue text-white">
-                    <span className="text-lg font-bold leading-none">{day}</span>
-                    <span className="text-xs uppercase">{month}</span>
+                  <div className="flex h-10 w-10 flex-shrink-0 flex-col items-center justify-center rounded-md bg-ink-blue text-white">
+                    <span className="text-sm font-bold leading-none">{day}</span>
+                    <span className="text-[10px] uppercase">{month}</span>
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-ink line-clamp-1">{event.title}</h3>
-                    <p className="mt-0.5 text-xs text-ink-soft line-clamp-1">
+                    <p className="mt-0 text-xs text-ink-soft line-clamp-1">
                       {event.location} · {event.category}
                     </p>
                   </div>
