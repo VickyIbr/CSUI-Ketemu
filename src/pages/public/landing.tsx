@@ -14,9 +14,9 @@ export function LandingPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20 text-white">
+      <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20">
         <div className="container mx-auto max-w-[1160px] px-5 text-center">
-          <h1 className="text-4xl font-bold md:text-5xl">
+          <h1 className="text-4xl font-bold text-white md:text-5xl">
             Temukan Event & Kursus Terbaik
           </h1>
           <p className="mt-4 text-lg text-white/80">
