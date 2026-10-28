@@ -81,14 +81,6 @@ export function LandingPage() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-white text-ink-blue hover:bg-white/90 font-semibold px-8" asChild>
-              <Link to="/discover">Eksplor Event →</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold px-8" asChild>
-              <Link to="/register">Daftar Sekarang</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
