@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   { href: "/", label: "Beranda" },
   { href: "/events", label: "Event" },
+  { href: "/courses", label: "Course" },
 ]
 
 export function SiteHeader() {

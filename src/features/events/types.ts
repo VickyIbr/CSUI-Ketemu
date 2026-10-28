@@ -1,4 +1,4 @@
-export type EventCategory = "Course" | "Workshop" | "Seminar" | "Kompetisi" | "Bootcamp" | "Webinar"
+export type EventCategory = "Workshop" | "Seminar" | "Kompetisi" | "Bootcamp" | "Webinar"
 
 export type EventStatus = "draft" | "published" | "cancelled" | "completed"
 

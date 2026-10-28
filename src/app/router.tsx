@@ -27,6 +27,8 @@ const AdminEventsPage = lazy(() => import("@/pages/admin/events").then((m) => ({
 const AdminAnalyticsPage = lazy(() => import("@/pages/admin/analytics").then((m) => ({ default: m.AdminAnalyticsPage })))
 const AdminSettingsPage = lazy(() => import("@/pages/admin/settings").then((m) => ({ default: m.AdminSettingsPage })))
 const NotFoundPage = lazy(() => import("@/pages/system/not-found").then((m) => ({ default: m.NotFoundPage })))
+const CoursesDiscoveryPage = lazy(() => import("@/pages/courses/discovery").then((m) => ({ default: m.CoursesDiscoveryPage })))
+const CourseDetailPage = lazy(() => import("@/pages/courses/[slug]").then((m) => ({ default: m.CourseDetailPage })))
 const LazyMitraNewEvent = lazy(() => import("@/pages/mitra/new-event").then((m) => ({ default: m.MitraNewEventPage })))
 
 function PageSkeleton() {
@@ -46,6 +48,8 @@ export const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       { path: "events", element: <DiscoveryPage /> },
       { path: "events/:slug", element: <EventDetailPage /> },
+      { path: "courses", element: <CoursesDiscoveryPage /> },
+      { path: "courses/:slug", element: <CourseDetailPage /> },
       { path: "checkout/:id", element: <CheckoutPage /> },
       { path: "checkout/payment/:id", element: <PaymentPage /> },
       { path: "order", element: <OrderHistoryPage /> },

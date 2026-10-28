@@ -3,19 +3,24 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useEventsStore } from "@/store/events.store"
+import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR } from "@/lib/format"
 
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
+  const courses = useCoursesStore((s) => s.courses)
   const partners = usePartnersStore((s) => s.partners)
   const featuredEvents = [
     events.find((e) => e.id === "event-10"), // Webinar
-    events.find((e) => e.id === "event-8"),  // Course
     events.find((e) => e.id === "event-3"),  // Seminar
     events.find((e) => e.id === "event-5"),  // Seminar
     events.find((e) => e.id === "event-7"),  // Kompetisi
   ].filter(Boolean) as typeof events
+
+  const featuredCourses = [...courses]
+    .sort((a, b) => b.filled - a.filled)
+    .slice(0, 5)
 
   return (
     <div className="min-h-screen">
@@ -64,13 +69,7 @@ export function LandingPage() {
                     <div className="mb-2 flex items-center gap-1 flex-wrap">
                       <Badge
                         variant="secondary"
-                        className={`text-xs ${
-                          event.category === "Course"
-                            ? "bg-ink-blue text-white"
-                            : event.category === "Webinar"
-                            ? "bg-ink-blue-soft text-ink-blue"
-                            : ""
-                        }`}
+                        className={`text-xs ${event.category === "Webinar" ? "bg-ink-blue-soft text-ink-blue" : ""}`}
                       >
                         {event.category}
                       </Badge>
@@ -88,6 +87,65 @@ export function LandingPage() {
                       </p>
                       <Button size="sm" variant="secondary" asChild className="text-xs px-2 py-1 h-7">
                         <Link to={`/events/${event.slug}`}>Detail</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Course Terpopuler */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto max-w-[1160px] px-5">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-ink">Course Terpopuler</h2>
+            <Link to="/courses" className="text-sm text-ink-blue underline">
+              Lihat semua
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {featuredCourses.map((course) => {
+              const catColor =
+                course.courseCategory === "IT"
+                  ? "bg-ink-blue text-white"
+                  : course.courseCategory === "Matematika"
+                  ? "bg-green-500 text-white"
+                  : course.courseCategory === "Bisnis"
+                  ? "bg-purple-500 text-white"
+                  : course.courseCategory === "Desain"
+                  ? "bg-pink-500 text-white"
+                  : "bg-ink-blue-soft text-ink-blue"
+              return (
+                <Card key={course.id} className="overflow-hidden">
+                  <div className="aspect-video bg-muted">
+                    <img
+                      src={course.coverUrl}
+                      alt={course.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-3">
+                    <div className="mb-2 flex items-center gap-1 flex-wrap">
+                      <Badge variant="secondary" className={`text-xs ${catColor}`}>
+                        {course.courseCategory}
+                      </Badge>
+                      {course.isOnline && (
+                        <Badge variant="outline" className="text-xs">
+                          🌐 Online
+                        </Badge>
+                      )}
+                    </div>
+                    <h3 className="text-sm font-bold text-ink line-clamp-2">{course.title}</h3>
+                    <p className="mt-1 text-xs text-ink-soft line-clamp-1">{course.location}</p>
+                    <div className="mt-2 flex items-center justify-between">
+                      <p className="text-sm font-bold text-ink">
+                        {course.isFree || course.price === 0 ? "Gratis" : formatIDR(course.price)}
+                      </p>
+                      <Button size="sm" variant="secondary" asChild className="text-xs px-2 py-1 h-7">
+                        <Link to={`/courses/${course.slug}`}>Detail</Link>
                       </Button>
                     </div>
                   </CardContent>
