@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { usePeopleStore } from "@/store/people.store"
-import { Search, Filter, X, ArrowRight, Award, BookOpen } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Search, ArrowRight, Award, BookOpen } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
@@ -11,14 +10,9 @@ import { SEO } from "@/components/seo"
 export function PeopleDiscoveryPage() {
   const { people, searchPeople } = usePeopleStore()
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null)
 
-  const allSkills = Array.from(
-    new Set(people.flatMap((p) => p.skills.map((s) => s.name)))
-  ).sort()
-
-  const filteredPeople = searchQuery || selectedSkill
-    ? searchPeople(searchQuery, selectedSkill || undefined)
+  const filteredPeople = searchQuery
+    ? searchPeople(searchQuery)
     : people
 
   return (
@@ -47,55 +41,10 @@ export function PeopleDiscoveryPage() {
         </div>
       </header>
 
-      {/* Stats */}
-      <div className="mx-auto max-w-[1160px] px-5">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="rounded-xl border border-line p-4">
-            <div className="text-2xl font-bold text-ink">{people.length}</div>
-            <div className="text-xs text-ink-soft">Total People</div>
-          </div>
-          <div className="rounded-xl border border-line p-4">
-            <div className="text-2xl font-bold text-ink">
-              {people.filter((p) => p.isVerified).length}
-            </div>
-            <div className="text-xs text-ink-soft">Terverifikasi</div>
-          </div>
-          <div className="rounded-xl border border-line p-4">
-            <div className="text-2xl font-bold text-ink">{allSkills.length}</div>
-            <div className="text-xs text-ink-soft">Skills</div>
-          </div>
-          <div className="rounded-xl border border-line p-4">
-            <div className="text-2xl font-bold text-ink">
-              {people.reduce((acc, p) => acc + p.certificates.length, 0)}
-            </div>
-            <div className="text-xs text-ink-soft">Sertifikat</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Skill Filter */}
-      <section className="mx-auto max-w-[1160px] px-5">
-        <div className="flex items-center gap-3 flex-wrap">
-          <Filter className="size-4 text-ink-soft" />
-          <h2 className="text-xl font-semibold text-ink">Filter by Skill</h2>
-          {allSkills.slice(0, 12).map((skill) => (
-            <Button
-              key={skill}
-              variant="outline"
-              size="sm"
-              onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
-            >
-              {skill}
-              {selectedSkill === skill && <X className="size-3 ml-1" />}
-            </Button>
-          ))}
-        </div>
-      </section>
-
       {/* People Grid */}
       <section className="mx-auto max-w-[1160px] px-5">
         <h2 className="text-xl font-semibold text-ink mb-4">
-          {selectedSkill || searchQuery ? "Hasil Pencarian" : "Semua People"}
+          {searchQuery ? "Hasil Pencarian" : "Semua People"}
         </h2>
         {filteredPeople.length === 0 ? (
           <div className="rounded-xl border border-line p-12 text-center">
