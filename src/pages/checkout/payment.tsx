@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Check } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -23,7 +24,7 @@ export function PaymentPage() {
     return (
       <div className="container mx-auto max-w-[1160px] px-5 py-12 text-center">
         <div className="mx-auto max-w-md rounded-lg bg-muted p-8">
-          <div className="text-6xl font-bold text-success">✓</div>
+          <Check className="h-16 w-16 text-success mx-auto" />
           <h1 className="mt-4 text-2xl font-bold text-ink">Pembayaran Berhasil!</h1>
           <p className="mt-2 text-ink-soft">
             Pesanan Anda telah dikonfirmasi. Detail akan dikirim ke email.
@@ -46,8 +47,8 @@ export function PaymentPage() {
           {/* Payment methods */}
           <div className="grid gap-4 sm:grid-cols-3">
             <Card
-              className={`cursor-pointer transition-shadow ${
-                selectedMethod === "bank" ? "border-ink-blue shadow-md" : "hover:shadow-sm"
+              className={`cursor-pointer transition-colors ${
+                selectedMethod === "bank" ? "border-ink-blue bg-ink-blue-soft" : "hover:bg-muted/50"
               }`}
               onClick={() => setSelectedMethod("bank")}
             >
@@ -57,8 +58,8 @@ export function PaymentPage() {
               </CardContent>
             </Card>
             <Card
-              className={`cursor-pointer transition-shadow ${
-                selectedMethod === "ewallet" ? "border-ink-blue shadow-md" : "hover:shadow-sm"
+              className={`cursor-pointer transition-colors ${
+                selectedMethod === "ewallet" ? "border-ink-blue bg-ink-blue-soft" : "hover:bg-muted/50"
               }`}
               onClick={() => setSelectedMethod("ewallet")}
             >
@@ -68,8 +69,8 @@ export function PaymentPage() {
               </CardContent>
             </Card>
             <Card
-              className={`cursor-pointer transition-shadow ${
-                selectedMethod === "qris" ? "border-ink-blue shadow-md" : "hover:shadow-sm"
+              className={`cursor-pointer transition-colors ${
+                selectedMethod === "qris" ? "border-ink-blue bg-ink-blue-soft" : "hover:bg-muted/50"
               }`}
               onClick={() => setSelectedMethod("qris")}
             >

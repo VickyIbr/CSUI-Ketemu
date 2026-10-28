@@ -39,7 +39,7 @@ export function EventCard({
   const isSoldOut = remaining <= 0
 
   return (
-    <Card className="overflow-hidden transition-shadow hover:shadow-md">
+    <Card className="overflow-hidden transition-colors hover:bg-muted/50">
       <div className="aspect-video bg-muted flex items-center justify-center">
         <span className="text-ink-soft text-sm">Cover</span>
       </div>

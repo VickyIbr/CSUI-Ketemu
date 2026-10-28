@@ -6,6 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useEventsStore } from "@/store/events.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { useReviewsStore } from "@/store/reviews.store"
+import { ReviewForm } from "@/features/reviews/components/review-form"
+import { SEO } from "@/components/seo"
+import { useEffect } from "react"
 import { formatIDR, formatDateLong } from "@/lib/format"
 
 export function EventDetailPage() {
@@ -19,6 +22,28 @@ export function EventDetailPage() {
   const partner = event ? getPartnerById(event.partnerId) : undefined
   const reviews = event ? getReviewsByEvent(event.id) : []
   const avgRating = event ? getAverageRating(event.id) : 0
+
+  useEffect(() => {
+    if (!event) return
+    const script = document.createElement("script")
+    script.type = "application/ld+json"
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": event.title,
+      "description": event.description,
+      "image": event.coverUrl,
+      "startDate": event.startDate,
+      "endDate": event.endDate,
+      "eventAttendanceMode": event.isOnline ? "https://schema.org/OnlineEventAttendanceMode" : "https://schema.org/OfflineEventAttendanceMode",
+      "location": event.isOnline ? { "@type": "VirtualLocation", "url": event.location } : { "@type": "Place", "name": event.location },
+      "organizer": { "@type": "Organization", "name": partner?.name || "KeTemu" },
+      "offers": { "@type": "Offer", "price": event.price || 0, "priceCurrency": "IDR" },
+      ...(avgRating > 0 ? { "aggregateRating": { "@type": "AggregateRating", "ratingValue": avgRating, "reviewCount": reviews.length } } : {}),
+    })
+    document.head.appendChild(script)
+    return () => { document.head.removeChild(script) }
+  }, [event, partner, avgRating, reviews.length])
 
   if (!event) {
     return (
@@ -35,6 +60,7 @@ export function EventDetailPage() {
 
   return (
     <div className="container mx-auto max-w-[1160px] px-5 py-8">
+      <SEO title={event.title} description={event.description} url={`/events/${event.slug}`} type="event" />
       <div className="aspect-video w-full overflow-hidden rounded-xl bg-muted">
         <img
           src={event.coverUrl}
@@ -153,6 +179,10 @@ export function EventDetailPage() {
               {reviews.length === 0 && (
                 <p className="text-sm text-ink-soft">Belum ada ulasan</p>
               )}
+            </div>
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold text-ink mb-3">Tulis Ulasan</h3>
+              <ReviewForm eventId={event.id} />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react"
 import { Search, SlidersHorizontal } from "lucide-react"
 import { Input } from "@/components/ui/input"
+import { SEO } from "@/components/seo"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -45,6 +46,7 @@ export function DiscoveryPage() {
 
   return (
     <div className="container mx-auto max-w-[1160px] px-5 py-8">
+      <SEO title="Event" description="Temukan event edukasi, seminar, workshop, dan kompetisi dari mitra terpercaya." />
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-ink">Temukan Event</h1>
         <p className="mt-1 text-ink-soft">
@@ -125,7 +127,7 @@ export function DiscoveryPage() {
         {filteredEvents.map((event) => {
           const partner = getPartnerById(event.partnerId)
           return (
-            <Card key={event.id} className="overflow-hidden transition-shadow hover:shadow-lg">
+            <Card key={event.id} className="overflow-hidden transition-colors hover:bg-muted/50">
               <div className="aspect-video bg-muted">
                 <img
                   src={event.coverUrl}

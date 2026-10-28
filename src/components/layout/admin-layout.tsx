@@ -20,7 +20,7 @@ export function AdminLayout() {
           <Card>
             <CardContent className="p-4 space-y-1">
               <div className="px-3 py-2 mb-2">
-                <span className="text-xs font-bold uppercase text-ink-soft">Admin Panel</span>
+                <span className="text-xs font-bold text-ink-soft">Admin Panel</span>
               </div>
               {navItems.map((item) => {
                 const Icon = item.icon

@@ -69,4 +69,5 @@ npx tsc --noEmit # Type check only
 
 - **Preview:** `npx vite preview` — but it fails repeatedly with exit -1; use browser_exec against production URL instead.
 - **Production:** Vercel at https://ketemu.vicky.id
+- **Development:** Vercel at https://development.ketemu.site
 - Every `npm run build` + push updates the live deployment.
