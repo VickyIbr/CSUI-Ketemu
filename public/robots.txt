@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and mitra dashboards from indexing
+Disallow: /admin/
+Disallow: /mitra/
+Disallow: /my/
+Disallow: /checkout/
+Disallow: /payment/
+
+Sitemap: https://ketemu.vicky.id/sitemap.xml
