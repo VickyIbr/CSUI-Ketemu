@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-# Editor
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,17 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Env
-.env
-.env.*
-!.env.example
-
-# Test artifacts
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-
-# OS
-Thumbs.db
