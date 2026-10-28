@@ -39,6 +39,19 @@ const footerLinks = [
   },
 ]
 
+const mobileFooterLinks = [
+  {
+    title: "Produk",
+    items: [
+      { label: "Event", href: "/events" },
+      { label: "Course", href: "/courses" },
+      { label: "People", href: "/people" },
+      { label: "Mitra", href: "/mitra" },
+      { label: "Dashboard", href: "/my" },
+    ],
+  },
+]
+
 export function SiteFooter() {
   const [open, setOpen] = useState(false)
 
@@ -103,7 +116,7 @@ export function SiteFooter() {
           </button>
           {open && (
             <div className="mt-3 grid grid-cols-1 gap-4">
-              {footerLinks.map((group) => (
+              {mobileFooterLinks.map((group) => (
                 <div key={group.title} className="space-y-2">
                   <p className="text-sm font-semibold text-ink">{group.title}</p>
                   <ul className="space-y-1">
