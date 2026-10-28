@@ -38,7 +38,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-[1160px] px-5">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold text-ink">Event Terpopuler di Sekitar Anda</h2>
-            <Link to="/discover" className="text-sm text-ink-blue underline">
+            <Link to="/events" className="text-sm text-ink-blue underline">
               Lihat semua
             </Link>
           </div>
