@@ -41,13 +41,10 @@ const footerLinks = [
 
 const mobileFooterLinks = [
   {
-    title: "Produk",
+    title: "Legal",
     items: [
-      { label: "Event", href: "/events" },
-      { label: "Course", href: "/courses" },
-      { label: "People", href: "/people" },
-      { label: "Mitra", href: "/mitra" },
-      { label: "Dashboard", href: "/my" },
+      { label: "Kebijakan privasi", href: "#" },
+      { label: "Syarat & ketentuan", href: "#" },
     ],
   },
 ]
