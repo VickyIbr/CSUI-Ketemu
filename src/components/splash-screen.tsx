@@ -11,7 +11,7 @@ export function SplashScreen() {
 
   const dismiss = () => {
     setExiting(true)
-    setTimeout(() => setVisible(false), 500)
+    setTimeout(() => setVisible(false), 400)
   }
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export function SplashScreen() {
     setVisible(true)
     sessionStorage.setItem(SESSION_KEY, "1")
 
-    const t1 = setTimeout(() => setPhase(1), 400)
-    const t2 = setTimeout(() => dismiss(), 2200)
+    const t1 = setTimeout(() => setPhase(1), 300)
+    const t2 = setTimeout(() => dismiss(), 1800)
 
     return () => {
       clearTimeout(t1)
@@ -58,9 +58,9 @@ export function SplashScreen() {
           50% { transform: translateY(-6px); }
         }
         @keyframes letterPop {
-          0% { opacity: 0; transform: scale(0.3) translateY(40px); filter: blur(8px); }
-          60% { opacity: 1; transform: scale(1.15) translateY(-4px); filter: blur(0); }
-          80% { transform: scale(0.95) translateY(2px); }
+          0% { opacity: 0; transform: scale(0.3) translateY(120px); filter: blur(10px); }
+          50% { opacity: 1; transform: scale(1.1) translateY(-6px); filter: blur(0); }
+          70% { transform: scale(0.97) translateY(2px); }
           100% { opacity: 1; transform: scale(1) translateY(0); }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -74,10 +74,11 @@ export function SplashScreen() {
       `}</style>
 
       <div
-        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-ink-blue"
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
         style={{
+          background: "radial-gradient(ellipse at center, #1e3a8a 0%, #0f172a 70%, #020617 100%)",
           animation: exiting
-            ? "splashExit 0.5s cubic-bezier(0.4, 0, 1, 1) forwards"
+            ? "splashExit 0.4s cubic-bezier(0.4, 0, 1, 1) forwards"
             : "splashEnter 0.3s ease-out",
         }}
         role="dialog"
@@ -89,7 +90,7 @@ export function SplashScreen() {
             className="relative"
             style={{
               animation: phase >= 0
-                ? "logoBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both, logoFloat 2.5s ease-in-out 0.8s infinite"
+                ? "logoBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both, logoFloat 2.5s ease-in-out 0.7s infinite"
                 : "none",
             }}
           >
@@ -109,7 +110,7 @@ export function SplashScreen() {
                 style={{
                   animation:
                     phase >= 1
-                      ? `letterPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.15}s both`
+                      ? `letterPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.08}s both`
                       : "none",
                   opacity: phase >= 1 ? undefined : 0,
                 }}
