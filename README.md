@@ -19,6 +19,25 @@ npm install
 npm run dev
 ```
 
+## Skills
+
+- `design-taste-frontend` — taste-skill
+- `frontend-design` — anthropics/skills
+- `shadcn/ui` — shadcn/ui
+- `webapp-testing` — anthropics/skills
+
+## Akun Demo
+
+_(placeholder — akan diisi di T-60)_
+
+## Batasan Prototype
+
+- Pembayaran simulasi (QRIS statis)
+- Upload bukti lokal (localStorage)
+- Auth mock (kredensial demo hardcoded)
+- Tanpa backend, tanpa database
+- Tanpa dark mode
+
 Build produksi:
 
 ```bash
