@@ -311,18 +311,6 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16">
-        <div className="container mx-auto max-w-[1160px] px-5 text-center">
-          <h2 className="text-2xl font-bold text-ink">Siap Mulai Belajar?</h2>
-          <p className="mt-2 text-ink-soft">
-            Daftar sekarang dan temukan event yang sesuai dengan minat kamu.
-          </p>
-          <Button size="lg" className="mt-6" asChild>
-            <Link to="/register">Daftar Gratis</Link>
-          </Button>
-        </div>
-      </section>
     </div>
   )
 }
