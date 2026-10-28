@@ -9,7 +9,7 @@ import { formatIDR } from "@/lib/format"
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
   const partners = usePartnersStore((s) => s.partners)
-  const featuredEvents = events.slice(0, 6)
+  const featuredEvents = events.slice(0, 5)
 
   return (
     <div className="min-h-screen">
@@ -42,31 +42,52 @@ export function LandingPage() {
               Lihat semua
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredEvents.map((event) => (
-              <Card key={event.id} className="overflow-hidden">
-                <div className="aspect-video bg-muted">
-                <img
-                  src={event.coverUrl}
-                  alt={event.title}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-                <CardContent className="p-4">
-                  <Badge variant="secondary" className="mb-2">
-                    {event.category}
-                  </Badge>
-                  <h3 className="font-bold text-ink">{event.title}</h3>
-                  <p className="mt-1 text-sm text-ink-soft">{event.location}</p>
-                  <div className="mt-3 flex items-center justify-between">
-                    <p className="font-bold text-ink">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</p>
-                    <Button size="sm" variant="secondary" asChild>
-                      <Link to={`/events/${event.slug}`}>Detail</Link>
-                    </Button>
+          <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {featuredEvents.map((event) => {
+              const isCourse = event.category === "Course"
+              const isWebinar = event.category === "Webinar"
+              return (
+                <Card
+                  key={event.id}
+                  className={`overflow-hidden ${isCourse ? "border-2 border-ink-blue" : isWebinar ? "border-dashed border-ink-soft" : ""}`}
+                >
+                  <div className="aspect-video bg-muted">
+                    <img
+                      src={event.coverUrl}
+                      alt={event.title}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-3">
+                    <div className="mb-2 flex items-center gap-1 flex-wrap">
+                      <Badge variant="secondary" className="text-xs">
+                        {event.category}
+                      </Badge>
+                      {isCourse && (
+                        <Badge className="bg-ink-blue text-white text-xs">
+                          🔒 Tertutup
+                        </Badge>
+                      )}
+                      {isWebinar && (
+                        <Badge variant="outline" className="text-xs">
+                          🌐 Online
+                        </Badge>
+                      )}
+                    </div>
+                    <h3 className="text-sm font-bold text-ink line-clamp-2">{event.title}</h3>
+                    <p className="mt-1 text-xs text-ink-soft line-clamp-1">{event.location}</p>
+                    <div className="mt-2 flex items-center justify-between">
+                      <p className="text-sm font-bold text-ink">
+                        {event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}
+                      </p>
+                      <Button size="sm" variant="secondary" asChild className="text-xs px-2 py-1 h-7">
+                        <Link to={`/events/${event.slug}`}>Detail</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>

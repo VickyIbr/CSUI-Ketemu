@@ -1,6 +1,8 @@
 import { lazy } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { AppShell } from "@/components/layout/app-shell"
+import { MitraLayout } from "@/components/layout/mitra-layout"
+import { AdminLayout } from "@/components/layout/admin-layout"
 
 // Lazy page imports
 const LandingPage = lazy(() => import("@/pages/public/landing").then((m) => ({ default: m.LandingPage })))
@@ -15,6 +17,10 @@ const AccountSettingsPage = lazy(() => import("@/pages/user/account-settings").t
 const PersonalSitePage = lazy(() => import("@/pages/user/[username]").then((m) => ({ default: m.PersonalSitePage })))
 const PartnerDashboardPage = lazy(() => import("@/pages/mitra/dashboard").then((m) => ({ default: m.PartnerDashboardPage })))
 const PartnerDetailPage = lazy(() => import("@/pages/mitra/[slug]").then((m) => ({ default: m.PartnerDetailPage })))
+const MitraAnalyticsPage = lazy(() => import("@/pages/mitra/analytics"))
+const MitraParticipantsPage = lazy(() => import("@/pages/mitra/participants"))
+const MitraSettingsPage = lazy(() => import("@/pages/mitra/settings"))
+const AdminDashboardPage = lazy(() => import("@/pages/admin/dashboard").then((m) => ({ default: m.AdminDashboardPage })))
 const NotFoundPage = lazy(() => import("@/pages/system/not-found").then((m) => ({ default: m.NotFoundPage })))
 
 function PageSkeleton() {
@@ -41,17 +47,31 @@ export const router = createBrowserRouter([
       { path: "register", element: <RegisterPage /> },
       { path: "account", element: <AccountSettingsPage /> },
       { path: "u/:username", element: <PersonalSitePage /> },
-      { path: "mitra", element: <PartnerDashboardPage /> },
-      { path: "mitra/:slug", element: <PartnerDetailPage /> },
       { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+  {
+    path: "/mitra",
+    element: <MitraLayout />,
+    children: [
+      { index: true, element: <PartnerDashboardPage /> },
+      { path: ":slug", element: <PartnerDetailPage /> },
+      { path: "analytics", element: <MitraAnalyticsPage /> },
+      { path: "participants", element: <MitraParticipantsPage /> },
+      { path: "settings", element: <MitraSettingsPage /> },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      { index: true, element: <AdminDashboardPage /> },
     ],
   },
 ])
 
 export function AppRouter() {
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />
 }
 
 export default AppRouter
