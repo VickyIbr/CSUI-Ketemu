@@ -26,7 +26,7 @@ export function LandingPage() {
             <Button size="lg" asChild>
               <Link to="/discover">Jelajahi Event</Link>
             </Button>
-            <Button size="lg" variant="secondary" className="border-white text-white hover:bg-white/10" asChild>
+            <Button size="lg" variant="outline" asChild>
               <Link to="/register">Daftar Sekarang</Link>
             </Button>
           </div>
