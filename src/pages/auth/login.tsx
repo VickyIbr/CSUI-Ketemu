@@ -32,7 +32,7 @@ export function LoginPage() {
       } else if (session.accountType === "admin") {
         navigate("/admin")
       } else {
-        navigate("/")
+        navigate("/my")
       }
     } else {
       setError("Gagal masuk dengan Google. Coba lagi.")

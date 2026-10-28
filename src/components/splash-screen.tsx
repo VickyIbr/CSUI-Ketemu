@@ -6,6 +6,11 @@ export function SplashScreen() {
   const [visible, setVisible] = useState(false)
   const [exiting, setExiting] = useState(false)
 
+  const dismiss = () => {
+    setExiting(true)
+    setTimeout(() => setVisible(false), 400)
+  }
+
   useEffect(() => {
     // Per-session: only show once per tab session
     if (sessionStorage.getItem(SESSION_KEY)) return
@@ -13,8 +18,7 @@ export function SplashScreen() {
     sessionStorage.setItem(SESSION_KEY, "1")
 
     const timer = setTimeout(() => {
-      setExiting(true)
-      setTimeout(() => setVisible(false), 400)
+      dismiss()
     }, 1500)
 
     return () => clearTimeout(timer)
@@ -140,6 +144,15 @@ export function SplashScreen() {
             <span className="splash-dot-1 h-2 w-2 rounded-full bg-white/60" />
             <span className="splash-dot-2 h-2 w-2 rounded-full bg-white/60" />
           </div>
+
+          {/* Skip button */}
+          <button
+            onClick={dismiss}
+            className="mt-6 text-sm text-white/60 hover:text-white transition-colors underline underline-offset-4"
+            aria-label="Lewati splash screen"
+          >
+            Lewati
+          </button>
         </div>
       </div>
     </>

@@ -32,7 +32,7 @@ export function RegisterPage() {
       } else if (session.accountType === "admin") {
         navigate("/admin")
       } else {
-        navigate("/")
+        navigate("/my")
       }
     } else {
       setError("Gagal daftar dengan Google. Coba lagi.")
