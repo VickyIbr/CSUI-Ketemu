@@ -9,6 +9,7 @@ const navItems = [
   { href: "/", label: "Beranda" },
   { href: "/events", label: "Event" },
   { href: "/courses", label: "Course" },
+  { href: "/people", label: "People" },
 ]
 
 export function SiteHeader() {

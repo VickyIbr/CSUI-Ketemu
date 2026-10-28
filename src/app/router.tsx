@@ -30,6 +30,9 @@ const NotFoundPage = lazy(() => import("@/pages/system/not-found").then((m) => (
 const CoursesDiscoveryPage = lazy(() => import("@/pages/courses/discovery").then((m) => ({ default: m.CoursesDiscoveryPage })))
 const CourseDetailPage = lazy(() => import("@/pages/courses/[slug]").then((m) => ({ default: m.CourseDetailPage })))
 const LazyMitraNewEvent = lazy(() => import("@/pages/mitra/new-event").then((m) => ({ default: m.MitraNewEventPage })))
+const UserDashboardPage = lazy(() => import("@/pages/user/dashboard").then((m) => ({ default: m.UserDashboardPage })))
+const PeopleDiscoveryPage = lazy(() => import("@/pages/people/discovery").then((m) => ({ default: m.PeopleDiscoveryPage })))
+const PersonProfilePage = lazy(() => import("@/pages/people/[username]").then((m) => ({ default: m.PersonProfilePage })))
 
 function PageSkeleton() {
   return (
@@ -50,6 +53,9 @@ export const router = createBrowserRouter([
       { path: "events/:slug", element: <EventDetailPage /> },
       { path: "courses", element: <CoursesDiscoveryPage /> },
       { path: "courses/:slug", element: <CourseDetailPage /> },
+      { path: "people", element: <PeopleDiscoveryPage /> },
+      { path: "my/:username", element: <PersonProfilePage /> },
+      { path: "dashboard", element: <UserDashboardPage /> },
       { path: "checkout/:id", element: <CheckoutPage /> },
       { path: "checkout/payment/:id", element: <PaymentPage /> },
       { path: "order", element: <OrderHistoryPage /> },
