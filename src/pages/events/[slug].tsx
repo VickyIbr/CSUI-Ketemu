@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useEventsStore } from "@/store/events.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { useReviewsStore } from "@/store/reviews.store"
+import { ReviewForm } from "@/features/reviews/components/review-form"
 import { formatIDR, formatDateLong } from "@/lib/format"
 
 export function EventDetailPage() {
@@ -153,6 +154,10 @@ export function EventDetailPage() {
               {reviews.length === 0 && (
                 <p className="text-sm text-ink-soft">Belum ada ulasan</p>
               )}
+            </div>
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold text-ink mb-3">Tulis Ulasan</h3>
+              <ReviewForm eventId={event.id} />
             </div>
           </div>
         </div>
