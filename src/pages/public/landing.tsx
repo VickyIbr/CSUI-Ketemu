@@ -50,13 +50,9 @@ export function LandingPage() {
           </div>
           <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {featuredEvents.map((event) => {
-              const isCourse = event.category === "Course"
               const isWebinar = event.category === "Webinar"
               return (
-                <Card
-                  key={event.id}
-                  className={`overflow-hidden ${isCourse ? "border-2 border-ink-blue" : isWebinar ? "border-dashed border-ink-soft" : ""}`}
-                >
+                <Card key={event.id} className="overflow-hidden">
                   <div className="aspect-video bg-muted">
                     <img
                       src={event.coverUrl}
@@ -66,7 +62,16 @@ export function LandingPage() {
                   </div>
                   <CardContent className="p-3">
                     <div className="mb-2 flex items-center gap-1 flex-wrap">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge
+                        variant="secondary"
+                        className={`text-xs ${
+                          event.category === "Course"
+                            ? "bg-ink-blue text-white"
+                            : event.category === "Webinar"
+                            ? "bg-ink-blue-soft text-ink-blue"
+                            : ""
+                        }`}
+                      >
                         {event.category}
                       </Badge>
                       {isWebinar && (
