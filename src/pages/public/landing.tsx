@@ -9,6 +9,7 @@ import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR } from "@/lib/format"
 import { SEO } from "@/components/seo"
+import { CheckCircle, FileText, Star } from "lucide-react"
 
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
@@ -139,11 +140,11 @@ export function LandingPage() {
 
       {/* Upcoming Timeline */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-[1160px] px-5">
+        <div className="container mx-auto max-w-[700px] px-5 text-center">
           <h2 className="text-2xl font-bold text-ink">Event Mendatang</h2>
           <p className="mt-1 text-sm text-ink-soft">Jangan sampai kelewatan event-event seru ini.</p>
-          <div className="mt-8 space-y-3">
-            {upcomingEvents.map((event) => {
+          <div className="mt-8 space-y-3 text-left">
+            {upcomingEvents.slice(0, 4).map((event) => {
               const date = new Date(event.startDate)
               const day = date.getDate()
               const month = date.toLocaleDateString("id-ID", { month: "short" })
@@ -243,18 +244,21 @@ export function LandingPage() {
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
-              { icon: "✅", title: "Mitra Terverifikasi", desc: "Setiap mitra melalui proses validasi sebelum bisa memposting event atau kursus." },
-              { icon: "📋", title: "Portofolio & Sertifikat", desc: "Mahasiswa menampilkan portofolio dan sertifikat yang bisa diverifikasi oleh mitra." },
-              { icon: "⭐", title: "Review Transparan", desc: "Ulasan dari peserta asli, tanpa manipulasi, untuk membantu kamu memilih." },
-            ].map((item) => (
-              <div key={item.title} className="flex flex-col items-center gap-3 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink-blue-soft text-2xl">
-                  {item.icon}
+              { icon: CheckCircle, title: "Mitra Terverifikasi", desc: "Setiap mitra melalui proses validasi sebelum bisa memposting event atau kursus." },
+              { icon: FileText, title: "Portofolio & Sertifikat", desc: "Mahasiswa menampilkan portofolio dan sertifikat yang bisa diverifikasi oleh mitra." },
+              { icon: Star, title: "Review Transparan", desc: "Ulasan dari peserta asli, tanpa manipulasi, untuk membantu kamu memilih." },
+            ].map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="flex flex-col items-center gap-3 text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink-blue-soft">
+                    <Icon className="h-7 w-7 text-ink-blue" />
+                  </div>
+                  <h3 className="text-base font-bold text-ink">{item.title}</h3>
+                  <p className="text-sm text-ink-soft">{item.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-ink">{item.title}</h3>
-                <p className="text-sm text-ink-soft">{item.desc}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -292,7 +296,7 @@ export function LandingPage() {
             Daftar newsletter, dapatkan info event & kursus terbaru langsah di email kamu.
           </p>
           {subscribed ? (
-            <p className="mt-6 text-white font-medium">✅ Terima kasih! Kamu sudah terdaftar.</p>
+            <p className="mt-6 text-white font-medium">Terima kasih! Kamu sudah terdaftar.</p>
           ) : (
             <form onSubmit={handleSubscribe} className="mt-6 flex gap-2">
               <Input
