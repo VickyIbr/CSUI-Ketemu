@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
       { path: "courses/:slug", element: <CourseDetailPage /> },
       { path: "people", element: <PeopleDiscoveryPage /> },
       { path: "my/:username", element: <PersonProfilePage /> },
-      { path: "dashboard", element: <UserDashboardPage /> },
+      { path: "my", element: <UserDashboardPage /> },
       { path: "checkout/:id", element: <CheckoutPage /> },
       { path: "checkout/payment/:id", element: <PaymentPage /> },
       { path: "order", element: <OrderHistoryPage /> },
