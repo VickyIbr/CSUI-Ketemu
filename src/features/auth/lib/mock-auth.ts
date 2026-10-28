@@ -17,6 +17,18 @@ export function loginMock(email: string, password: string): Session | null {
   }
 }
 
+export function loginWithGoogleMock(email: string, displayName: string): Session | null {
+  const cred = DEMO_CREDENTIALS[email.toLowerCase()]
+  if (!cred) return null
+  return {
+    userId: cred.userId,
+    accountType: cred.accountType,
+    token: `google-token-${cred.userId}-${Date.now()}`,
+    provider: "google",
+    displayName,
+  }
+}
+
 export function registerMock(
   name: string,
   email: string,

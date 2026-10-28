@@ -4,4 +4,6 @@ export interface Session {
   userId: string
   accountType: AccountType
   token: string
+  provider?: "google" | "email"
+  displayName?: string
 }

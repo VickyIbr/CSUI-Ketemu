@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import { useAuthStore } from "@/store/auth.store"
-import { loginMock, registerMock, logoutMock } from "@/features/auth/lib/mock-auth"
+import { loginMock, registerMock, logoutMock, loginWithGoogleMock } from "@/features/auth/lib/mock-auth"
 
 export function useAuth() {
   const session = useAuthStore((s) => s.session)
@@ -10,6 +10,15 @@ export function useAuth() {
   const login = useCallback(
     (email: string, password: string) => {
       const session = loginMock(email, password)
+      if (session) setSession(session)
+      return session
+    },
+    [setSession]
+  )
+
+  const loginWithGoogle = useCallback(
+    (email: string, displayName: string) => {
+      const session = loginWithGoogleMock(email, displayName)
       if (session) setSession(session)
       return session
     },
@@ -34,6 +43,7 @@ export function useAuth() {
     session,
     isAuthenticated: session !== null,
     login,
+    loginWithGoogle,
     register,
     logout,
   }
