@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const demoAccounts = [
-  { email: "rina@example.com", password: "rahasia123", role: "User biasa" },
-  { email: "budi@example.com", password: "rahasia123", role: "Software Engineer" },
+  { email: "user@ketemu.id", password: "ketemu123", role: "User" },
+  { email: "partner@ketemu.id", password: "ketemu123", role: "Mitra" },
+  { email: "admin@ketemu.id", password: "ketemu123", role: "Admin" },
 ]
 
 export function LoginPage() {
@@ -80,8 +81,9 @@ export function LoginPage() {
           <div className="mt-6 rounded-md bg-muted p-4 text-xs text-ink-soft">
             <p className="font-medium">Akun Demo:</p>
             <ul className="mt-2 space-y-1">
-              <li>rina@example.com / rahasia123 (User biasa)</li>
-              <li>budi@example.com / rahasia123 (Software Engineer)</li>
+              <li>user@ketemu.id / ketemu123 (User)</li>
+              <li>partner@ketemu.id / ketemu123 (Mitra)</li>
+              <li>admin@ketemu.id / ketemu123 (Admin)</li>
             </ul>
           </div>
         </CardContent>

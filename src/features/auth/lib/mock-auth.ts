@@ -2,10 +2,9 @@ import { usersSeed } from "@/features/profile/data/users.seed"
 import type { AccountType, Session } from "@/features/auth/types"
 
 const DEMO_CREDENTIALS: Record<string, { password: string; userId: string; accountType: AccountType }> = {
-  "rina@example.com": { password: "rahasia123", userId: "user-1", accountType: "user" },
-  "budi@example.com": { password: "rahasia123", userId: "user-2", accountType: "user" },
-  "siti@example.com": { password: "rahasia123", userId: "user-3", accountType: "user" },
-  "mitra@example.com": { password: "rahasia123", userId: "partner-1", accountType: "mitra" },
+  "user@ketemu.id": { password: "ketemu123", userId: "user-1", accountType: "user" },
+  "partner@ketemu.id": { password: "ketemu123", userId: "partner-1", accountType: "mitra" },
+  "admin@ketemu.id": { password: "ketemu123", userId: "admin-1", accountType: "admin" },
 }
 
 export function loginMock(email: string, password: string): Session | null {

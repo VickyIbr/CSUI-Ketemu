@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 export function AccountSettingsPage() {
   const [profile, setProfile] = useState({
     name: "Rina Wijaya",
-    email: "rina@example.com",
+    email: "user@ketemu.id",
     headline: "Mahasiswa Sistem Informasi UI",
     bio: "Suka belajar teknologi baru dan berpartisipasi dalam kompetisi hackathon.",
   })
