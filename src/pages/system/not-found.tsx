@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button"
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage } from "@/components/ui/breadcrumb"
 
 export function NotFoundPage() {
@@ -13,12 +15,9 @@ export function NotFoundPage() {
       <div className="mt-8">
         <h1 className="text-4xl font-bold text-ink">404</h1>
         <p className="mt-2 text-ink-soft">Halaman yang Anda cari tidak ada.</p>
-        <a
-          href="/"
-          className="mt-6 inline-block rounded-md bg-ink-blue px-4 py-2 text-sm font-medium text-white hover:bg-ink-blue/90 transition-colors"
-        >
-          Kembali ke Beranda
-        </a>
+        <Button asChild className="mt-6 h-auto px-4 py-2 text-sm">
+          <Link to="/">Kembali ke Beranda</Link>
+        </Button>
       </div>
     </div>
   )

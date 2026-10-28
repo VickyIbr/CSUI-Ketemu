@@ -43,7 +43,7 @@ export function RegisterPage() {
   return (
     <>
       <div className="flex min-h-[calc(100vh-8rem)] items-center justify-center px-5">
-        <Card className="w-[420px] border-0 shadow-lg">
+        <Card className="w-[420px]">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-ink">Daftar</CardTitle>
             <CardDescription>
@@ -68,7 +68,7 @@ export function RegisterPage() {
               type="button"
               onClick={handleGoogleSignIn}
               disabled={loading}
-              className="flex w-full items-center justify-center gap-3 rounded-md border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-sm transition-colors hover:bg-muted disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-3 rounded-md border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-muted disabled:opacity-50"
             >
               <svg width="18" height="18" viewBox="0 0 24 24">
                 <path

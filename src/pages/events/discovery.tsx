@@ -127,7 +127,7 @@ export function DiscoveryPage() {
         {filteredEvents.map((event) => {
           const partner = getPartnerById(event.partnerId)
           return (
-            <Card key={event.id} className="overflow-hidden transition-shadow hover:shadow-lg">
+            <Card key={event.id} className="overflow-hidden transition-colors hover:bg-muted/50">
               <div className="aspect-video bg-muted">
                 <img
                   src={event.coverUrl}

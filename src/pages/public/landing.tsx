@@ -9,7 +9,7 @@ import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR } from "@/lib/format"
 import { SEO } from "@/components/seo"
-import { CheckCircle, FileText, Star } from "lucide-react"
+import { CheckCircle, FileText, Star, Wifi } from "lucide-react"
 
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
@@ -47,7 +47,7 @@ export function LandingPage() {
       <SEO title="Beranda" description="Platform event dan kursus dari mitra terpercaya. Temukan event dan kursus yang sesuai dengan minat kamu." />
 
       {/* Hero + Cara Kerja */}
-      <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20">
+      <section className="bg-ink-blue py-20">
         <div className="container mx-auto max-w-[1160px] px-5 text-center">
           <h1 className="text-4xl font-bold text-white md:text-5xl">
             Temukan Event & Kursus yang Pas
@@ -65,7 +65,7 @@ export function LandingPage() {
             ].map((item, i, arr) => (
               <div key={item.step} className="flex items-center gap-0">
                 <div className="flex flex-col items-center gap-2 w-[180px]">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white backdrop-blur-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white">
                     {item.step}
                   </div>
                   <h3 className="text-base font-bold text-white">{item.title}</h3>
@@ -115,8 +115,9 @@ export function LandingPage() {
                         {event.category}
                       </Badge>
                       {isWebinar && (
-                        <Badge variant="outline" className="text-xs">
-                          🌐 Online
+                        <Badge variant="outline" className="text-xs flex items-center gap-1">
+                          <Wifi className="h-3 w-3" />
+                          Online
                         </Badge>
                       )}
                     </div>
@@ -143,8 +144,8 @@ export function LandingPage() {
         <div className="container mx-auto max-w-[1160px] px-5">
           <h2 className="text-2xl font-bold text-ink">Event Mendatang</h2>
           <p className="mt-1 text-sm text-ink-soft">Jangan sampai kelewatan event-event seru ini.</p>
-          <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
-            {upcomingEvents.slice(0, 8).map((event) => {
+          <div className="mt-6 flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+            {upcomingEvents.slice(0, 4).map((event) => {
               const date = new Date(event.startDate)
               const day = date.getDate()
               const month = date.toLocaleDateString("id-ID", { month: "short" })
@@ -156,7 +157,7 @@ export function LandingPage() {
                 >
                   <div className="flex h-10 w-10 flex-shrink-0 flex-col items-center justify-center rounded-md bg-ink-blue text-white">
                     <span className="text-sm font-bold leading-none">{day}</span>
-                    <span className="text-[10px] uppercase">{month}</span>
+                    <span className="text-[10px]">{month}</span>
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-ink line-clamp-1">{event.title}</h3>
@@ -212,8 +213,9 @@ export function LandingPage() {
                         {course.courseCategory}
                       </Badge>
                       {course.isOnline && (
-                        <Badge variant="outline" className="text-xs">
-                          🌐 Online
+                        <Badge variant="outline" className="text-xs flex items-center gap-1">
+                          <Wifi className="h-3 w-3" />
+                          Online
                         </Badge>
                       )}
                     </div>
@@ -293,7 +295,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-[600px] px-5 text-center">
           <h2 className="text-2xl font-bold text-white">Jangan Ketinggalan Info Event Baru</h2>
           <p className="mt-2 text-white/70">
-            Daftar newsletter, dapatkan info event & kursus terbaru langsah di email kamu.
+            Daftar newsletter, dapatkan info event & kursus terbaru langsung di email kamu.
           </p>
           {subscribed ? (
             <p className="mt-6 text-white font-medium">Terima kasih! Kamu sudah terdaftar.</p>
@@ -304,7 +306,7 @@ export function LandingPage() {
                 placeholder="email@kamu.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-white/10 text-white placeholder:text-white/50 border-white/20"
+                className="flex-1 bg-white text-ink placeholder:text-ink-soft border border-line"
                 required
               />
               <Button type="submit" variant="secondary">
