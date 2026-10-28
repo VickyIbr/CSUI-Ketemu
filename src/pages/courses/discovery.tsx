@@ -44,7 +44,7 @@ export function CoursesDiscoveryPage() {
                 Course & Diploma
               </h1>
               <p className="text-ink-soft mt-1">
-                Program pendidikan dan pelatihan dari mitra Universitas Indonesia
+                Program pendidikan dan pelatihan dari mitra Universitas Indonesia. Pilih yang pas buat kamu.
               </p>
             </div>
             <div className="relative w-full md:w-72">
@@ -92,7 +92,7 @@ export function CoursesDiscoveryPage() {
       <section className="mx-auto max-w-[1160px] px-5">
         <div className="flex items-center gap-2 mb-4">
           <TrendingUp className="size-4 text-ink-blue" />
-          <h2 className="text-xl font-semibold text-ink">Course Terpopuler</h2>
+          <h2 className="text-xl font-semibold text-ink">Course Paling Populer</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {trendingCourses.map((course) => {

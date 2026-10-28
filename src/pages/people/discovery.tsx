@@ -35,7 +35,7 @@ export function PeopleDiscoveryPage() {
             <div className="relative w-full md:w-72">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-ink-soft" />
               <Input
-                placeholder="Cari nama, skill, jurusan..."
+                placeholder="Cari nama, skill, atau jurusan..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9"
@@ -97,7 +97,7 @@ export function PeopleDiscoveryPage() {
         </h2>
         {filteredPeople.length === 0 ? (
           <div className="rounded-xl border border-line p-12 text-center">
-            <p className="text-ink-soft">Tidak ada people yang ditemukan.</p>
+            <p className="text-ink-soft">Gak ada orang yang ditemukan nih.</p>
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

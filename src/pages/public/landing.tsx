@@ -28,14 +28,14 @@ export function LandingPage() {
       <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20">
         <div className="container mx-auto max-w-[1160px] px-5 text-center">
           <h1 className="text-4xl font-bold text-white md:text-5xl">
-            Temukan Event & Kursus Terbaik
+            Temukan Event & Kursus yang Pas
           </h1>
           <p className="mt-4 text-lg text-white/80">
-            Platform event dan kursus dari mitra terpercaya. Belajar, berkembang, dan raih kesempatan baru.
+            Platform event dan kursus dari mitra terpercaya. Yuk, belajar, berkembang, dan raih kesempatan baru.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
-              <Link to="/discover">Jelajahi Event</Link>
+              <Link to="/discover">Eksplor Event</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link to="/register">Daftar Sekarang</Link>
@@ -48,9 +48,9 @@ export function LandingPage() {
       <section className="py-16">
         <div className="container mx-auto max-w-[1160px] px-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-ink">Event Terpopuler di Sekitar Anda</h2>
+            <h2 className="text-2xl font-bold text-ink">Event Paling Populer di Sekitar Kamu</h2>
             <Link to="/events" className="text-sm text-ink-blue underline">
-              Lihat semua
+              Lihat Semua
             </Link>
           </div>
           <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
@@ -101,9 +101,9 @@ export function LandingPage() {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto max-w-[1160px] px-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-ink">Course Terpopuler</h2>
+            <h2 className="text-2xl font-bold text-ink">Course Paling Populer</h2>
             <Link to="/courses" className="text-sm text-ink-blue underline">
-              Lihat semua
+              Lihat Semua
             </Link>
           </div>
           <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
@@ -159,7 +159,7 @@ export function LandingPage() {
       {/* Partners */}
       <section className="bg-muted py-16">
         <div className="container mx-auto max-w-[1160px] px-5">
-          <h2 className="text-2xl font-bold text-ink">Mitra Terpercaya</h2>
+          <h2 className="text-2xl font-bold text-ink">Mitra yang Udah Terpercaya</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {partners.map((partner) => (
               <Card key={partner.id}>
@@ -186,7 +186,7 @@ export function LandingPage() {
         <div className="container mx-auto max-w-[1160px] px-5 text-center">
           <h2 className="text-2xl font-bold text-ink">Siap Mulai Belajar?</h2>
           <p className="mt-2 text-ink-soft">
-            Daftar sekarang dan temukan event yang sesuai dengan minat Anda.
+            Daftar sekarang dan temukan event yang sesuai dengan minat kamu.
           </p>
           <Button size="lg" className="mt-6" asChild>
             <Link to="/register">Daftar Gratis</Link>

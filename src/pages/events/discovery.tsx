@@ -57,7 +57,7 @@ export function DiscoveryPage() {
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft" />
           <Input
-            placeholder="Cari event, workshop, seminar..."
+            placeholder="Cari event, workshop, seminar apa aja..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="pl-10"
@@ -167,9 +167,9 @@ export function DiscoveryPage() {
 
       {filteredEvents.length === 0 && (
         <div className="mt-16 text-center">
-          <p className="text-lg text-ink-soft">Tidak ada event yang ditemukan</p>
+          <p className="text-lg text-ink-soft">Gak ada event yang ditemukan nih</p>
           <p className="mt-1 text-sm text-ink-soft">
-            Coba ubah filter atau kata kunci pencarian
+            Coba ubah filter atau kata kunci pencarian kamu
           </p>
         </div>
       )}
