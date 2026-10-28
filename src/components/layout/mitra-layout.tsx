@@ -1,10 +1,11 @@
 import { Link, Outlet, useLocation } from "react-router-dom"
 import { Card, CardContent } from "@/components/ui/card"
-import { LayoutDashboard, PlusCircle, Users, Settings, BarChart3 } from "lucide-react"
+import { LayoutDashboard, PlusCircle, Users, Settings, BarChart3, Calendar } from "lucide-react"
 
 const navItems = [
-  { path: "/mitra/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { path: "/mitra", label: "Dashboard", icon: LayoutDashboard },
   { path: "/mitra/new-event", label: "Buat Event", icon: PlusCircle },
+  { path: "/mitra/events", label: "Kelola Event", icon: Calendar },
   { path: "/mitra/participants", label: "Peserta", icon: Users },
   { path: "/mitra/analytics", label: "Analytics", icon: BarChart3 },
   { path: "/mitra/settings", label: "Pengaturan", icon: Settings },

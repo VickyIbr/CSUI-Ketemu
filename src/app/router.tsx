@@ -20,8 +20,14 @@ const PartnerDetailPage = lazy(() => import("@/pages/mitra/[slug]").then((m) => 
 const MitraAnalyticsPage = lazy(() => import("@/pages/mitra/analytics"))
 const MitraParticipantsPage = lazy(() => import("@/pages/mitra/participants"))
 const MitraSettingsPage = lazy(() => import("@/pages/mitra/settings"))
+const MitraEventsPage = lazy(() => import("@/pages/mitra/events").then((m) => ({ default: m.MitraEventsPage })))
 const AdminDashboardPage = lazy(() => import("@/pages/admin/dashboard").then((m) => ({ default: m.AdminDashboardPage })))
+const AdminUsersPage = lazy(() => import("@/pages/admin/users").then((m) => ({ default: m.AdminUsersPage })))
+const AdminEventsPage = lazy(() => import("@/pages/admin/events").then((m) => ({ default: m.AdminEventsPage })))
+const AdminAnalyticsPage = lazy(() => import("@/pages/admin/analytics").then((m) => ({ default: m.AdminAnalyticsPage })))
+const AdminSettingsPage = lazy(() => import("@/pages/admin/settings").then((m) => ({ default: m.AdminSettingsPage })))
 const NotFoundPage = lazy(() => import("@/pages/system/not-found").then((m) => ({ default: m.NotFoundPage })))
+const LazyMitraNewEvent = lazy(() => import("@/pages/mitra/new-event").then((m) => ({ default: m.MitraNewEventPage })))
 
 function PageSkeleton() {
   return (
@@ -59,6 +65,8 @@ export const router = createBrowserRouter([
       { path: "analytics", element: <MitraAnalyticsPage /> },
       { path: "participants", element: <MitraParticipantsPage /> },
       { path: "settings", element: <MitraSettingsPage /> },
+      { path: "new-event", element: <LazyMitraNewEvent /> },
+      { path: "events", element: <MitraEventsPage /> },
     ],
   },
   {
@@ -66,6 +74,10 @@ export const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       { index: true, element: <AdminDashboardPage /> },
+      { path: "users", element: <AdminUsersPage /> },
+      { path: "events", element: <AdminEventsPage /> },
+      { path: "analytics", element: <AdminAnalyticsPage /> },
+      { path: "settings", element: <AdminSettingsPage /> },
     ],
   },
 ])
