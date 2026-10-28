@@ -17,8 +17,9 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-line bg-paper">
       <div className="container mx-auto flex h-16 max-w-[1160px] items-center justify-between px-5">
-        <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-ink-blue">Ketemu</span>
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/icon/favicon-32x32.png" alt="KeTemu" className="h-8 w-8 rounded-full" />
+          <span className="text-xl font-bold text-ink-blue">KeTemu</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

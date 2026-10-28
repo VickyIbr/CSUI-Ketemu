@@ -6,7 +6,7 @@ import { useAuth } from "@/features/auth/hooks/use-auth"
 const GOOGLE_ACCOUNTS = [
   { email: "user@ketemu.id", name: "Oscar Ryanda Putra", role: "User", avatar: "O" },
   { email: "partner@ketemu.id", name: "BEM Fasilkom UI", role: "Mitra", avatar: "B" },
-  { email: "admin@ketemu.id", name: "Admin Ketemu", role: "Admin", avatar: "A" },
+  { email: "admin@ketemu.id", name: "Admin KeTemu", role: "Admin", avatar: "A" },
 ]
 
 export function LoginPage() {
@@ -91,7 +91,7 @@ export function LoginPage() {
               <div className="w-[360px] rounded-lg bg-white p-6 shadow-xl">
                 <h3 className="mb-4 text-lg font-bold text-ink">Pilih akun Google</h3>
                 <p className="mb-4 text-sm text-ink-soft">
-                  Pilih akun untuk masuk ke Ketemu
+                  Pilih akun untuk masuk ke KeTemu
                 </p>
                 <div className="space-y-2">
                   {GOOGLE_ACCOUNTS.map((account) => (

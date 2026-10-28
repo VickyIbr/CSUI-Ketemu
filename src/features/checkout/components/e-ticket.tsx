@@ -45,7 +45,7 @@ export function ETicket({
       >
         <div className="bg-ink text-paper px-6 py-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-bold text-lg">Ketemu</h2>
+            <h2 className="font-bold text-lg">KeTemu</h2>
             <span className={`text-xs px-2 py-1 rounded border ${statusColors[status]}`}>
               {statusLabels[status]}
             </span>

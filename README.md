@@ -1,4 +1,4 @@
-# CSUI-Ketemu
+# CSUI-KeTemu
 
 Prototype platform event kampus dengan light theme putih + kuning + biru.
 

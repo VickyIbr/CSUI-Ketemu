@@ -32,4 +32,4 @@ export const EVENT_STATUS = {
 
 export const KOMISI_RATE = 0.05
 export const HOLD_MINUTES = 15
-export const PLATFORM_NAME = "Ketemu"
+export const PLATFORM_NAME = "KeTemu"
