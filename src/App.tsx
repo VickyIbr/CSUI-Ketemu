@@ -1,8 +1,11 @@
+import { AppRouter } from "@/app/router"
+import { Providers } from "@/app/providers"
+
 function App() {
   return (
-    <div>
-      <h1>Ketemu Platform</h1>
-    </div>
+    <Providers>
+      <AppRouter />
+    </Providers>
   )
 }
 
