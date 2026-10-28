@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom"
 import { Card, CardContent } from "@/components/ui/card"
-import { LayoutDashboard, Users, Settings, BarChart3, Calendar } from "lucide-react"
+import { LayoutDashboard, Users, Settings, BarChart3, Calendar, Home } from "lucide-react"
 
 const navItems = [
   { path: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -40,6 +40,15 @@ export function AdminLayout() {
                   </Link>
                 )
               })}
+              <div className="pt-2 mt-2 border-t border-line">
+                <Link
+                  to="/"
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-ink-soft hover:bg-muted transition"
+                >
+                  <Home size={16} />
+                  Kembali ke Beranda
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </aside>
