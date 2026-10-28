@@ -16,7 +16,7 @@ export const eventsSeed: Event[] = [
     endDate: "2025-11-18T17:00:00Z",
     location: "Lab AI Fasilkom UI",
     isOnline: false,
-    partnerId: "partner-4",
+    partnerId: "partner-1",
     coverUrl: "/covers/introduction-ai.svg",
     syllabus: [
       "Konsep Dasar AI",
@@ -176,7 +176,7 @@ export const eventsSeed: Event[] = [
     endDate: "2026-03-01T17:00:00Z",
     location: "Lab AI Fasilkom UI",
     isOnline: false,
-    partnerId: "partner-4",
+    partnerId: "partner-1",
     coverUrl: "/covers/data-science-bootcamp.svg",
     syllabus: [
       "Python & Pandas",
@@ -240,7 +240,7 @@ export const eventsSeed: Event[] = [
     endDate: "2026-03-01T17:00:00Z",
     location: "Lab Fasilkom UI",
     isOnline: false,
-    partnerId: "partner-5",
+    partnerId: "partner-2",
     coverUrl: "/covers/go-course-ui.svg",
     syllabus: [
       "Go Syntax & Types",
@@ -272,7 +272,7 @@ export const eventsSeed: Event[] = [
     endDate: "2025-12-06T17:00:00Z",
     location: "Lab Keamanan Nasional",
     isOnline: false,
-    partnerId: "partner-4",
+    partnerId: "partner-1",
     coverUrl: "/covers/cybersecurity.svg",
     syllabus: [
       "Cryptography Fundamentals",
@@ -304,7 +304,7 @@ export const eventsSeed: Event[] = [
     endDate: "2025-11-20T16:00:00Z",
     location: "Online",
     isOnline: true,
-    partnerId: "partner-4",
+    partnerId: "partner-1",
     coverUrl: "/covers/ui-tech-talk.svg",
     syllabus: [
       "AI di Industri",

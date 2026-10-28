@@ -8,10 +8,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export function AccountSettingsPage() {
   const [profile, setProfile] = useState({
-    name: "Rina Wijaya",
-    email: "user@ketemu.id",
-    headline: "Mahasiswa Sistem Informasi UI",
-    bio: "Suka belajar teknologi baru dan berpartisipasi dalam kompetisi hackathon.",
+    name: "Oscar Ryanda Putra",
+    email: "oscar.ryanda@ui.ac.id",
+    headline: "Mahasiswa Sistem Informasi Fasilkom UI",
+    bio: "Mahasiswa Sistem Informasi angkatan 2023. Juara 1 Tecfest Global Business Case Competition 2025.",
   })
 
   const [saved, setSaved] = useState(false)
