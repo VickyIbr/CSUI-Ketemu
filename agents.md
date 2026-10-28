@@ -10,7 +10,7 @@
 - Konten placeholder: **gambar dari internet, data dummy dari berita, nama mahasiswa UI** — bukan data pribadi siapa pun.
 - Tanpa bahasa Indonesia formal, **user-facing text dalam Bahasa Indonesia tidak formal** (gaya Gojek), sedangkan route, variable, component, dan file tetap dalam bahasa Inggris.
 - Semua gaya visual mengikuti `.agents/2-DESIGN.md` (design system ketat, tidak ada deviation).
-- Git author harus **VickyIbr**, bukan user Ubuntu.
+- Git author: VickyIbr
 
 ---
 

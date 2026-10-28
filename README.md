@@ -103,7 +103,7 @@ src/
 - **Prototype statis** — tidak ada backend/database. Data ditaruh di file TypeScript seed.
 - **Gambar dari internet** — bukan data pribadi user.
 - **Bahasa UI** — Bahasa Indonesia tidak formal (gaya Gojek). Route, variable, component, file tetap dalam bahasa Inggris.
-- **Author** — VickyIbr (bukan ubuntu).
+- **Author** — VickyIbr.
 
 ---
 
