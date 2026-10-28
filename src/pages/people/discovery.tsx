@@ -29,7 +29,7 @@ export function PeopleDiscoveryPage() {
             <div>
               <h1 className="text-3xl font-bold text-ink">People</h1>
               <p className="text-ink-soft mt-1">
-                Temukan mahasiswa UI yang terverifikasi, dengan profil dan portfolio
+                Temukan orang yang terverifikasi, dengan profil dan portfolio
               </p>
             </div>
             <div className="relative w-full md:w-72">
