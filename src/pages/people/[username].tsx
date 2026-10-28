@@ -6,6 +6,7 @@ import { useCoursesStore } from "@/store/courses.store"
 import { useEventsStore } from "@/store/events.store"
 import { formatDateLong } from "@/lib/format"
 import { ArrowLeft, Award, BookOpen, Globe, Calendar, MapPin, GraduationCap } from "lucide-react"
+import { SEO } from "@/components/seo"
 
 export function PersonProfilePage() {
   const { username } = useParams<{ username: string }>()
@@ -31,6 +32,7 @@ export function PersonProfilePage() {
 
   return (
     <div className="container mx-auto max-w-[1160px] px-5 py-8">
+      <SEO title={`${person.name} - Profil`} description={person.bio} url={`/my/${person.username}`} />
       {/* Back link */}
       <Link to="/people" className="inline-flex items-center gap-2 text-sm text-ink-soft hover:text-ink mb-6">
         <ArrowLeft className="size-4" />

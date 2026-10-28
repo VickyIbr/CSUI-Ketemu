@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR, formatDateLong } from "@/lib/format"
+import { SEO } from "@/components/seo"
 
 export function CourseDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -30,6 +31,7 @@ export function CourseDetailPage() {
 
   return (
     <div className="container mx-auto max-w-[1160px] px-5 py-8">
+      <SEO title={course.title} description={course.description} url={`/courses/${course.slug}`} type="event" />
       <div className="aspect-video w-full overflow-hidden rounded-xl bg-muted">
         <img
           src={course.coverUrl}

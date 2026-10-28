@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
+import { SEO } from "@/components/seo"
 
 export function CoursesDiscoveryPage() {
   const { courses, getCoursesByCategory, searchCourses } = useCoursesStore()
@@ -35,6 +36,7 @@ export function CoursesDiscoveryPage() {
 
   return (
     <div className="flex flex-col gap-8">
+      <SEO title="Course" description="Temukan course online dan offline dari mitra terpercaya. Tingkatkan skill kamu dengan course yang relevan." />
       {/* Header */}
       <header>
         <div className="mx-auto max-w-[1160px] px-5 py-8">

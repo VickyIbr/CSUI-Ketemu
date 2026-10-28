@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
+import { SEO } from "@/components/seo"
 
 export function PeopleDiscoveryPage() {
   const { people, searchPeople } = usePeopleStore()
@@ -22,6 +23,7 @@ export function PeopleDiscoveryPage() {
 
   return (
     <div className="flex flex-col gap-8">
+      <SEO title="People" description="Temukan mahasiswa dan profesional terverifikasi. Lihat profil, portfolio, dan skill mereka." />
       {/* Header */}
       <header>
         <div className="mx-auto max-w-[1160px] px-5 py-8">
