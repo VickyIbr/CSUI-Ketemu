@@ -11,6 +11,7 @@ import { RegisterPage } from "@/pages/auth/register"
 import { AccountSettingsPage } from "@/pages/user/account-settings"
 import { PersonalSitePage } from "@/pages/user/personal-site"
 import { PartnerDashboardPage } from "@/pages/mitra/partner-dashboard"
+import { PartnerDetailPage } from "@/pages/public/partner-detail"
 import { NotFoundPage } from "@/pages/system/not-found"
 
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       { path: "account", element: <AccountSettingsPage /> },
       { path: "u/:username", element: <PersonalSitePage /> },
       { path: "mitra", element: <PartnerDashboardPage /> },
-      { path: "mitra/:slug", element: <PartnerDashboardPage /> },
+      { path: "mitra/:slug", element: <PartnerDetailPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
