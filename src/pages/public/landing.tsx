@@ -56,27 +56,36 @@ export function LandingPage() {
           </p>
 
           {/* Cara Kerja */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:justify-center sm:gap-0">
             {[
               { step: "1", title: "Daftar", desc: "Buat akun gratis, lengkapi profil dan portofolio kamu." },
               { step: "2", title: "Temukan", desc: "Eksplor event & kursus dari mitra terpercaya yang sesuai minat." },
               { step: "3", title: "Belajar & Raih", desc: "Ikuti event, dapatkan sertifikat, dan bangun kredibilitas." },
-            ].map((item) => (
-              <div key={item.step} className="flex flex-col items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white backdrop-blur-sm">
-                  {item.step}
+            ].map((item, i, arr) => (
+              <div key={item.step} className="flex items-center gap-0">
+                <div className="flex flex-col items-center gap-2 w-[180px]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white backdrop-blur-sm">
+                    {item.step}
+                  </div>
+                  <h3 className="text-base font-bold text-white">{item.title}</h3>
+                  <p className="text-sm text-white/70 text-center">{item.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-white">{item.title}</h3>
-                <p className="text-sm text-white/70 max-w-[220px]">{item.desc}</p>
+                {i < arr.length - 1 && (
+                  <div className="hidden sm:flex items-center justify-center px-2 pt-4">
+                    <svg className="h-6 w-6 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild>
-              <Link to="/discover">Eksplor Event</Link>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Button size="lg" className="bg-white text-ink-blue hover:bg-white/90 font-semibold px-8" asChild>
+              <Link to="/discover">Eksplor Event →</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold px-8" asChild>
               <Link to="/register">Daftar Sekarang</Link>
             </Button>
           </div>
