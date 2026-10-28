@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import { GitBranch, AtSign, X, Globe } from "lucide-react"
+import { useState } from "react"
+import { GitBranch, AtSign, X, Globe, ChevronDown } from "lucide-react"
 
 const socials = [
   { icon: GitBranch, href: "https://github.com/VickyIbr/CSUI-Ketemu", label: "GitHub" },
@@ -39,11 +40,14 @@ const footerLinks = [
 ]
 
 export function SiteFooter() {
+  const [open, setOpen] = useState(false)
+
   return (
     <footer className="border-t border-line bg-paper-2">
       <div className="container mx-auto max-w-[1160px] px-5 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+        {/* Brand + socials — always visible */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
             <Link to="/" className="flex items-center gap-2 text-lg font-bold text-ink-blue">
               <img src="/icon/favicon-32x32.png" alt="KeTemu" className="h-6 w-6 rounded-full" />
               KeTemu
@@ -67,20 +71,54 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {footerLinks.map((group) => (
-            <div key={group.title} className="space-y-3">
-              <p className="text-sm font-semibold text-ink">{group.title}</p>
-              <ul className="space-y-2">
-                {group.items.map((item) => (
-                  <li key={item.label}>
-                    <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Desktop: 3 link columns side by side */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-8">
+            {footerLinks.map((group) => (
+              <div key={group.title} className="space-y-3">
+                <p className="text-sm font-semibold text-ink">{group.title}</p>
+                <ul className="space-y-2">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: collapsible menu to keep footer compact */}
+        <div className="mt-6 sm:hidden">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex w-full items-center justify-between rounded-md border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-muted/50"
+            aria-expanded={open}
+          >
+            Menu
+            <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+          </button>
+          {open && (
+            <div className="mt-3 grid grid-cols-1 gap-4">
+              {footerLinks.map((group) => (
+                <div key={group.title} className="space-y-2">
+                  <p className="text-sm font-semibold text-ink">{group.title}</p>
+                  <ul className="space-y-1">
+                    {group.items.map((item) => (
+                      <li key={item.label}>
+                        <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
         <div className="mt-10 border-t border-line pt-6 text-sm text-ink-soft">
