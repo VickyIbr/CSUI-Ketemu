@@ -7,6 +7,7 @@ import { useEventsStore } from "@/store/events.store"
 import { formatDateLong } from "@/lib/format"
 import { ArrowLeft, Award, BookOpen, Globe, Calendar, MapPin, GraduationCap } from "lucide-react"
 import { SEO } from "@/components/seo"
+import { useEffect } from "react"
 
 export function PersonProfilePage() {
   const { username } = useParams<{ username: string }>()
@@ -15,6 +16,29 @@ export function PersonProfilePage() {
   const events = useEventsStore((s) => s.events)
 
   const person = username ? getPersonByUsername(username) : undefined
+
+  useEffect(() => {
+    if (!person) return
+    const script = document.createElement("script")
+    script.type = "application/ld+json"
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": person.name,
+      "description": person.bio,
+      "image": person.avatarUrl,
+      "url": `https://ketemu.vicky.id/my/${person.username}`,
+      "jobTitle": person.major,
+      "alumniOf": person.university ? { "@type": "EducationalOrganization", "name": person.university } : undefined,
+      "sameAs": [
+        person.socialLinks.linkedin,
+        person.socialLinks.github,
+        person.socialLinks.website
+      ].filter(Boolean),
+    })
+    document.head.appendChild(script)
+    return () => { document.head.removeChild(script) }
+  }, [person])
 
   if (!person) {
     return (

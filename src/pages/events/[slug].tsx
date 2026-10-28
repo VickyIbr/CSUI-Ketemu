@@ -8,6 +8,7 @@ import { usePartnersStore } from "@/store/partners.store"
 import { useReviewsStore } from "@/store/reviews.store"
 import { ReviewForm } from "@/features/reviews/components/review-form"
 import { SEO } from "@/components/seo"
+import { useEffect } from "react"
 import { formatIDR, formatDateLong } from "@/lib/format"
 
 export function EventDetailPage() {
@@ -21,6 +22,28 @@ export function EventDetailPage() {
   const partner = event ? getPartnerById(event.partnerId) : undefined
   const reviews = event ? getReviewsByEvent(event.id) : []
   const avgRating = event ? getAverageRating(event.id) : 0
+
+  useEffect(() => {
+    if (!event) return
+    const script = document.createElement("script")
+    script.type = "application/ld+json"
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": event.title,
+      "description": event.description,
+      "image": event.coverUrl,
+      "startDate": event.startDate,
+      "endDate": event.endDate,
+      "eventAttendanceMode": event.isOnline ? "https://schema.org/OnlineEventAttendanceMode" : "https://schema.org/OfflineEventAttendanceMode",
+      "location": event.isOnline ? { "@type": "VirtualLocation", "url": event.location } : { "@type": "Place", "name": event.location },
+      "organizer": { "@type": "Organization", "name": partner?.name || "KeTemu" },
+      "offers": { "@type": "Offer", "price": event.price || 0, "priceCurrency": "IDR" },
+      ...(avgRating > 0 ? { "aggregateRating": { "@type": "AggregateRating", "ratingValue": avgRating, "reviewCount": reviews.length } } : {}),
+    })
+    document.head.appendChild(script)
+    return () => { document.head.removeChild(script) }
+  }, [event, partner, avgRating, reviews.length])
 
   if (!event) {
     return (
