@@ -1,0 +1,68 @@
+import { Review } from "../types"
+
+export const reviewsSeed: Review[] = [
+  {
+    id: "review-1",
+    eventId: "event-1",
+    userId: "user-1",
+    rating: 5,
+    comment: "Workshop yang sangat bermanfaat! Instruktur sangat berpengalaman dan materi disampaikan dengan jelas.",
+    createdAt: "2025-10-20T10:00:00Z",
+  },
+  {
+    id: "review-2",
+    eventId: "event-1",
+    userId: "user-2",
+    rating: 4,
+    comment: "Materi advanced patterns sangat bagus, tapi waktunya agak singkat untuk hands-on.",
+    createdAt: "2025-10-21T14:30:00Z",
+  },
+  {
+    id: "review-3",
+    eventId: "event-2",
+    userId: "user-3",
+    rating: 5,
+    comment: "TypeScript Masterclass terbaik yang pernah saya ikuti. Penjelasan generics sangat clear.",
+    createdAt: "2025-10-18T09:00:00Z",
+  },
+  {
+    id: "review-4",
+    eventId: "event-3",
+    userId: "user-1",
+    rating: 4,
+    comment: "UI Design Fundamentals sangat membantu untuk memahami design systems. Figma hands-on-nya fun.",
+    createdAt: "2025-10-19T11:00:00Z",
+  },
+  {
+    id: "review-5",
+    eventId: "event-5",
+    userId: "user-2",
+    rating: 5,
+    comment: "Hackathon yang seru! Hadiahnya generous dan mentoringnya sangat membantu.",
+    createdAt: "2025-10-22T16:00:00Z",
+  },
+  {
+    id: "review-6",
+    eventId: "event-8",
+    userId: "user-3",
+    rating: 5,
+    comment: "Seminar AI di Pendidikan sangat informatif. Panelisnya credible dan topiknya relevan.",
+    createdAt: "2025-10-23T10:00:00Z",
+  },
+  {
+    id: "review-7",
+    eventId: "event-10",
+    userId: "user-1",
+    rating: 4,
+    comment: "Webinar DevOps yang bagus untuk pemula. Penjelasan CI/CD sangat mudah dipahami.",
+    createdAt: "2025-10-24T13:00:00Z",
+  },
+  {
+    id: "review-8",
+    eventId: "event-12",
+    userId: "user-2",
+    rating: 4,
+    comment: "UX Research Workshop sangat praktis. User interview techniques-nya langsung bisa dipakai.",
+    createdAt: "2025-10-25T09:30:00Z",
+  },
+]
