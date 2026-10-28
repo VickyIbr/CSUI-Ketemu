@@ -9,7 +9,13 @@ import { formatIDR } from "@/lib/format"
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
   const partners = usePartnersStore((s) => s.partners)
-  const featuredEvents = events.slice(0, 5)
+  const featuredEvents = [
+    events.find((e) => e.id === "event-10"), // Webinar
+    events.find((e) => e.id === "event-8"),  // Course
+    events.find((e) => e.id === "event-3"),  // Seminar
+    events.find((e) => e.id === "event-5"),  // Seminar
+    events.find((e) => e.id === "event-7"),  // Kompetisi
+  ].filter(Boolean) as typeof events
 
   return (
     <div className="min-h-screen">
