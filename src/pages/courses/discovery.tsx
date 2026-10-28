@@ -46,7 +46,7 @@ export function CoursesDiscoveryPage() {
                 Course & Diploma
               </h1>
               <p className="text-ink-soft mt-1">
-                Program pendidikan dan pelatihan dari mitra Universitas Indonesia. Pilih yang pas buat kamu.
+                Program pendidikan dan pelatihan dari mitra terpercaya. Pilih yang pas buat kamu.
               </p>
             </div>
             <div className="relative w-full md:w-72">
