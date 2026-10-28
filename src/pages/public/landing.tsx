@@ -59,7 +59,7 @@ export function LandingPage() {
                   <h3 className="font-bold text-ink">{event.title}</h3>
                   <p className="mt-1 text-sm text-ink-soft">{event.location}</p>
                   <div className="mt-3 flex items-center justify-between">
-                    <p className="font-bold text-ink">{formatIDR(event.price)}</p>
+                    <p className="font-bold text-ink">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</p>
                     <Button size="sm" variant="secondary" asChild>
                       <Link to={`/events/${event.slug}`}>Detail</Link>
                     </Button>

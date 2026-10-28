@@ -71,7 +71,7 @@ export function PartnerDetailPage() {
                     <p className="text-sm text-ink-soft">{event.category}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium text-ink">{formatIDR(event.price)}</p>
+                    <p className="font-medium text-ink">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</p>
                     <Button variant="secondary" size="sm" asChild>
                       <Link to={`/events/${event.slug}`}>Detail</Link>
                     </Button>

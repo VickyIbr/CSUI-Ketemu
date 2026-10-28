@@ -362,7 +362,7 @@ export function CheckoutPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-ink-soft">Harga</span>
-                  <span className="font-medium text-ink">{formatIDR(event.price)}</span>
+                  <span className="font-medium text-ink">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-ink-soft">Qty</span>
