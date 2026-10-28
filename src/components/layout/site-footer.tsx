@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import { Github, Instagram, X, Link2 } from "lucide-react"
+import { GitBranch, AtSign, X, Globe } from "lucide-react"
 
 const socials = [
-  { icon: Github, href: "https://github.com/VickyIbr/CSUI-Ketemu", label: "GitHub" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: GitBranch, href: "https://github.com/VickyIbr/CSUI-Ketemu", label: "GitHub" },
+  { icon: AtSign, href: "https://instagram.com", label: "Instagram" },
   { icon: X, href: "https://x.com", label: "X" },
-  { icon: Link2, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Globe, href: "https://linkedin.com", label: "LinkedIn" },
 ]
 
 const footerLinks = [
