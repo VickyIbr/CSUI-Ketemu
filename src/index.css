@@ -26,7 +26,12 @@
   --muted-foreground: var(--ink-soft);
   --accent: var(--ink-blue-soft);
   --accent-foreground: var(--ink-blue);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
   --destructive: var(--danger);
+  --destructive-foreground: #ffffff;
   --border: var(--line);
   --input: var(--line);
   --ring: var(--ink-blue);
