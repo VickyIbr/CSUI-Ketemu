@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <LandingPage /> },
-      { path: "event", element: <DiscoveryPage /> },
-      { path: "event/:slug", element: <EventDetailPage /> },
+      { path: "events", element: <DiscoveryPage /> },
+      { path: "events/:slug", element: <EventDetailPage /> },
       { path: "checkout/:id", element: <CheckoutPage /> },
       { path: "payment/:id", element: <PaymentPage /> },
       { path: "order", element: <OrderHistoryPage /> },
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
       { path: "account", element: <AccountSettingsPage /> },
       { path: "u/:username", element: <PersonalSitePage /> },
       { path: "mitra", element: <PartnerDashboardPage /> },
+      { path: "mitra/:slug", element: <PartnerDashboardPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
