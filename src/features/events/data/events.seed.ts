@@ -17,7 +17,7 @@ export const eventsSeed: Event[] = [
     location: "Lab AI Fasilkom UI",
     isOnline: false,
     partnerId: "partner-1",
-    coverUrl: "/covers/introduction-ai.svg",
+    coverUrl: "/covers/iwk-ai.jpg",
     syllabus: [
       "Konsep Dasar AI",
       "Machine Learning & Deep Learning",
@@ -49,7 +49,7 @@ export const eventsSeed: Event[] = [
     location: "Lab Fasilkom UI",
     isOnline: false,
     partnerId: "partner-1",
-    coverUrl: "/covers/web-dev-workshop.svg",
+    coverUrl: "/covers/collabtech.jpg",
     syllabus: [
       "HTML, CSS, dan JavaScript",
       "React Fundamentals",
@@ -81,7 +81,7 @@ export const eventsSeed: Event[] = [
     location: "Aula Fasilkom UI",
     isOnline: false,
     partnerId: "partner-3",
-    coverUrl: "/covers/csui-career-fair.svg",
+    coverUrl: "/covers/riset-fasilkom.jpg",
     syllabus: [
       "CV dan Portfolio",
       "Technical Interview",
@@ -113,7 +113,7 @@ export const eventsSeed: Event[] = [
     location: "Gedung Fasilkom UI",
     isOnline: false,
     partnerId: "partner-1",
-    coverUrl: "/covers/hackathon-fasilkom.svg",
+    coverUrl: "/covers/iwk-ai.jpg",
     syllabus: [
       "Problem Definition",
       "Prototyping",
@@ -145,7 +145,7 @@ export const eventsSeed: Event[] = [
     location: "Auditorium Fasilkom UI",
     isOnline: false,
     partnerId: "partner-2",
-    coverUrl: "/covers/ristek-showcase.svg",
+    coverUrl: "/covers/collabtech.jpg",
     syllabus: [
       "Presentasi Penelitian Mahasiswa",
       "Peer Review",
@@ -177,7 +177,7 @@ export const eventsSeed: Event[] = [
     location: "Lab AI Fasilkom UI",
     isOnline: false,
     partnerId: "partner-1",
-    coverUrl: "/covers/data-science-bootcamp.svg",
+    coverUrl: "/covers/excel-workshop.jpg",
     syllabus: [
       "Python & Pandas",
       "SQL & Data Wrangling",
@@ -210,7 +210,7 @@ export const eventsSeed: Event[] = [
     location: "Online",
     isOnline: true,
     partnerId: "partner-1",
-    coverUrl: "/covers/web-design-competition.svg",
+    coverUrl: "/covers/ai-prodi.jpg",
     syllabus: [
       "Design Brief",
       "Submission Phase",
@@ -241,7 +241,7 @@ export const eventsSeed: Event[] = [
     location: "Lab Fasilkom UI",
     isOnline: false,
     partnerId: "partner-2",
-    coverUrl: "/covers/go-course-ui.svg",
+    coverUrl: "/covers/collabtech.jpg",
     syllabus: [
       "Go Syntax & Types",
       "Concurrency with Goroutines",
@@ -273,7 +273,7 @@ export const eventsSeed: Event[] = [
     location: "Lab Keamanan Nasional",
     isOnline: false,
     partnerId: "partner-1",
-    coverUrl: "/covers/cybersecurity.svg",
+    coverUrl: "/covers/riset-fasilkom.jpg",
     syllabus: [
       "Cryptography Fundamentals",
       "Network Security",
@@ -305,7 +305,7 @@ export const eventsSeed: Event[] = [
     location: "Online",
     isOnline: true,
     partnerId: "partner-1",
-    coverUrl: "/covers/ui-tech-talk.svg",
+    coverUrl: "/covers/ai-prodi.jpg",
     syllabus: [
       "AI di Industri",
       "Landasan Teknologi",

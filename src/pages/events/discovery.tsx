@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useEventsStore } from "@/store/events.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR } from "@/lib/format"
+import { Link } from "react-router-dom"
 
 const categories = ["Semua", "Course", "Workshop", "Seminar", "Kompetisi", "Bootcamp", "Webinar"]
 
@@ -148,10 +149,15 @@ export function DiscoveryPage() {
                     {event.filled}/{event.quota} peserta
                   </span>
                 </div>
-                <div className="mt-2 flex items-center gap-2 text-xs text-ink-soft">
-                  <span>{partner?.name}</span>
-                  <span>•</span>
-                  <span>{event.isOnline ? "Online" : event.location}</span>
+                <div className="mt-2 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-xs text-ink-soft">
+                    <span>{partner?.name}</span>
+                    <span>•</span>
+                    <span>{event.isOnline ? "Online" : event.location}</span>
+                  </div>
+                  <Button size="sm" variant="secondary" asChild>
+                    <Link to={`/events/${event.slug}`}>Detail</Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

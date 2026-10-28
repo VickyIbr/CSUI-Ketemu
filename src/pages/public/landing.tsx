@@ -37,7 +37,7 @@ export function LandingPage() {
       <section className="py-16">
         <div className="container mx-auto max-w-[1160px] px-5">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-ink">Event Terpopuler</h2>
+            <h2 className="text-2xl font-bold text-ink">Event Terpopuler di Sekitar Anda</h2>
             <Link to="/discover" className="text-sm text-ink-blue underline">
               Lihat semua
             </Link>
@@ -45,7 +45,13 @@ export function LandingPage() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredEvents.map((event) => (
               <Card key={event.id} className="overflow-hidden">
-                <div className="aspect-video bg-muted" />
+                <div className="aspect-video bg-muted">
+                <img
+                  src={event.coverUrl}
+                  alt={event.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
                 <CardContent className="p-4">
                   <Badge variant="secondary" className="mb-2">
                     {event.category}
