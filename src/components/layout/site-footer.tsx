@@ -38,12 +38,23 @@ const footerLinks = [
   },
 ]
 
+const mobileFooterLinks = [
+  {
+    title: "Legal",
+    items: [
+      { label: "Kebijakan privasi", href: "#" },
+      { label: "Syarat & ketentuan", href: "#" },
+    ],
+  },
+]
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-paper-2">
       <div className="container mx-auto max-w-[1160px] px-5 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+        {/* Brand + socials — always visible */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
             <Link to="/" className="flex items-center gap-2 text-lg font-bold text-ink-blue">
               <img src="/icon/favicon-32x32.png" alt="KeTemu" className="h-6 w-6 rounded-full" />
               KeTemu
@@ -67,20 +78,43 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {footerLinks.map((group) => (
-            <div key={group.title} className="space-y-3">
-              <p className="text-sm font-semibold text-ink">{group.title}</p>
-              <ul className="space-y-2">
-                {group.items.map((item) => (
-                  <li key={item.label}>
-                    <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Desktop: 3 link columns side by side */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-8">
+            {footerLinks.map((group) => (
+              <div key={group.title} className="space-y-3">
+                <p className="text-sm font-semibold text-ink">{group.title}</p>
+                <ul className="space-y-2">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: show links directly (no dropdown) */}
+        <div className="mt-6 sm:hidden">
+          <div className="grid grid-cols-1 gap-4">
+            {mobileFooterLinks.map((group) => (
+              <div key={group.title} className="space-y-2">
+                <p className="text-sm font-semibold text-ink">{group.title}</p>
+                <ul className="space-y-1">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <Link to={item.href} className="text-sm text-ink-soft transition-colors hover:text-ink-blue">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 border-t border-line pt-6 text-sm text-ink-soft">
