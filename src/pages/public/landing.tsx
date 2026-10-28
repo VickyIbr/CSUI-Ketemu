@@ -6,6 +6,7 @@ import { useEventsStore } from "@/store/events.store"
 import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { formatIDR } from "@/lib/format"
+import { SEO } from "@/components/seo"
 
 export function LandingPage() {
   const events = useEventsStore((s) => s.events)
@@ -24,6 +25,7 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen">
+      <SEO title="Beranda" description="Platform event dan kursus dari mitra terpercaya. Temukan event dan kursus yang sesuai dengan minat kamu." />
       {/* Hero */}
       <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20">
         <div className="container mx-auto max-w-[1160px] px-5 text-center">

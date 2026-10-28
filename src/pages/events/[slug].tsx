@@ -7,6 +7,7 @@ import { useEventsStore } from "@/store/events.store"
 import { usePartnersStore } from "@/store/partners.store"
 import { useReviewsStore } from "@/store/reviews.store"
 import { ReviewForm } from "@/features/reviews/components/review-form"
+import { SEO } from "@/components/seo"
 import { formatIDR, formatDateLong } from "@/lib/format"
 
 export function EventDetailPage() {
@@ -36,6 +37,7 @@ export function EventDetailPage() {
 
   return (
     <div className="container mx-auto max-w-[1160px] px-5 py-8">
+      <SEO title={event.title} description={event.description} url={`/events/${event.slug}`} type="event" />
       <div className="aspect-video w-full overflow-hidden rounded-xl bg-muted">
         <img
           src={event.coverUrl}
