@@ -89,28 +89,28 @@ export function DiscoveryPage() {
       {showFilters && (
         <div className="mt-4 flex flex-wrap gap-3 rounded-lg border bg-card p-4">
           <Button
-            variant={filterFree === true ? "highlight" : "secondary"}
+            variant={filterFree === true ? "default" : "secondary"}
             size="sm"
             onClick={() => setFilterFree(filterFree === true ? null : true)}
           >
             Gratis
           </Button>
           <Button
-            variant={filterFree === false ? "highlight" : "secondary"}
+            variant={filterFree === false ? "default" : "secondary"}
             size="sm"
             onClick={() => setFilterFree(filterFree === false ? null : false)}
           >
             Berbayar
           </Button>
           <Button
-            variant={filterOnline === true ? "highlight" : "secondary"}
+            variant={filterOnline === true ? "default" : "secondary"}
             size="sm"
             onClick={() => setFilterOnline(filterOnline === true ? null : true)}
           >
             Online
           </Button>
           <Button
-            variant={filterOnline === false ? "highlight" : "secondary"}
+            variant={filterOnline === false ? "default" : "secondary"}
             size="sm"
             onClick={() => setFilterOnline(filterOnline === false ? null : false)}
           >

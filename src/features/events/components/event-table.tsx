@@ -24,21 +24,21 @@ export function EventTable({ events, onEdit }: EventTableProps) {
       <div className="flex gap-2">
         <Button
           size="sm"
-          variant={filter === "all" ? "highlight" : "secondary"}
+          variant={filter === "all" ? "default" : "secondary"}
           onClick={() => setFilter("all")}
         >
           Semua
         </Button>
         <Button
           size="sm"
-          variant={filter === "published" ? "highlight" : "secondary"}
+          variant={filter === "published" ? "default" : "secondary"}
           onClick={() => setFilter("published")}
         >
           Terbit
         </Button>
         <Button
           size="sm"
-          variant={filter === "draft" ? "highlight" : "secondary"}
+          variant={filter === "draft" ? "default" : "secondary"}
           onClick={() => setFilter("draft")}
         >
           Draft

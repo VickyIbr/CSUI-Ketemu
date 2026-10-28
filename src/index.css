@@ -20,9 +20,9 @@
   --foreground: var(--ink);
   --primary: var(--ink-blue);
   --primary-foreground: #ffffff;
-  --secondary: var(--paper-2);
+  --secondary: #eef1f5;
   --secondary-foreground: var(--ink);
-  --muted: var(--paper-2);
+  --muted: #eef1f5;
   --muted-foreground: var(--ink-soft);
   --accent: var(--ink-blue-soft);
   --accent-foreground: var(--ink-blue);

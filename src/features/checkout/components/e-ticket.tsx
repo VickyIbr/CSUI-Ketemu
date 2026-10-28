@@ -117,7 +117,7 @@ export function ETicket({
       </div>
 
       {status === "paid" && onReview && (
-        <Button variant="highlight" className="w-full mt-2" onClick={onReview}>
+        <Button variant="default" className="w-full mt-2" onClick={onReview}>
           Beri Ulasan
         </Button>
       )}
