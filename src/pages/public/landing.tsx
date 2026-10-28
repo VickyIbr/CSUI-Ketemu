@@ -1,7 +1,9 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
 import { useEventsStore } from "@/store/events.store"
 import { useCoursesStore } from "@/store/courses.store"
 import { usePartnersStore } from "@/store/partners.store"
@@ -12,6 +14,9 @@ export function LandingPage() {
   const events = useEventsStore((s) => s.events)
   const courses = useCoursesStore((s) => s.courses)
   const partners = usePartnersStore((s) => s.partners)
+  const [email, setEmail] = useState("")
+  const [subscribed, setSubscribed] = useState(false)
+
   const featuredEvents = [
     events.find((e) => e.id === "event-10"), // Webinar
     events.find((e) => e.id === "event-3"),  // Seminar
@@ -23,10 +28,24 @@ export function LandingPage() {
     .sort((a, b) => b.filled - a.filled)
     .slice(0, 5)
 
+  // Upcoming events sorted by startDate (nearest first)
+  const upcomingEvents = [...events]
+    .filter((e) => e.status === "published")
+    .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+    .slice(0, 6)
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email.trim()) {
+      setSubscribed(true)
+    }
+  }
+
   return (
     <div className="min-h-screen">
       <SEO title="Beranda" description="Platform event dan kursus dari mitra terpercaya. Temukan event dan kursus yang sesuai dengan minat kamu." />
-      {/* Hero */}
+
+      {/* Hero + Cara Kerja */}
       <section className="bg-gradient-to-br from-ink-blue to-ink-blue-soft py-20">
         <div className="container mx-auto max-w-[1160px] px-5 text-center">
           <h1 className="text-4xl font-bold text-white md:text-5xl">
@@ -35,6 +54,24 @@ export function LandingPage() {
           <p className="mt-4 text-lg text-white/80">
             Platform event dan kursus dari mitra terpercaya. Yuk, belajar, berkembang, dan raih kesempatan baru.
           </p>
+
+          {/* Cara Kerja */}
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              { step: "1", title: "Daftar", desc: "Buat akun gratis, lengkapi profil dan portofolio kamu." },
+              { step: "2", title: "Temukan", desc: "Eksplor event & kursus dari mitra terpercaya yang sesuai minat." },
+              { step: "3", title: "Belajar & Raih", desc: "Ikuti event, dapatkan sertifikat, dan bangun kredibilitas." },
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center gap-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-lg font-bold text-white backdrop-blur-sm">
+                  {item.step}
+                </div>
+                <h3 className="text-base font-bold text-white">{item.title}</h3>
+                <p className="text-sm text-white/70 max-w-[220px]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
               <Link to="/discover">Eksplor Event</Link>
@@ -99,8 +136,46 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Course Terpopuler */}
+      {/* Upcoming Timeline */}
       <section className="py-16 bg-muted/30">
+        <div className="container mx-auto max-w-[1160px] px-5">
+          <h2 className="text-2xl font-bold text-ink">Event Mendatang</h2>
+          <p className="mt-1 text-sm text-ink-soft">Jangan sampai kelewatan event-event seru ini.</p>
+          <div className="mt-8 space-y-3">
+            {upcomingEvents.map((event) => {
+              const date = new Date(event.startDate)
+              const day = date.getDate()
+              const month = date.toLocaleDateString("id-ID", { month: "short" })
+              return (
+                <Link
+                  key={event.id}
+                  to={`/events/${event.slug}`}
+                  className="flex items-center gap-4 rounded-lg border border-border bg-card p-3 transition-colors hover:bg-muted/50"
+                >
+                  <div className="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-md bg-ink-blue text-white">
+                    <span className="text-lg font-bold leading-none">{day}</span>
+                    <span className="text-xs uppercase">{month}</span>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-sm font-bold text-ink line-clamp-1">{event.title}</h3>
+                    <p className="mt-0.5 text-xs text-ink-soft line-clamp-1">
+                      {event.location} · {event.category}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Badge variant="secondary" className="text-xs">
+                      {event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}
+                    </Badge>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Course Terpopuler */}
+      <section className="py-16">
         <div className="container mx-auto max-w-[1160px] px-5">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold text-ink">Course Paling Populer</h2>
@@ -158,6 +233,31 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Trust Explanation */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto max-w-[1160px] px-5">
+          <h2 className="text-2xl font-bold text-ink text-center">Kenapa KeTemu?</h2>
+          <p className="mt-2 text-center text-ink-soft max-w-2xl mx-auto">
+            Kami memastikan setiap mitra dan pengguna terverifikasi, sehingga kamu bisa belajar dengan tenang.
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              { icon: "✅", title: "Mitra Terverifikasi", desc: "Setiap mitra melalui proses validasi sebelum bisa memposting event atau kursus." },
+              { icon: "📋", title: "Portofolio & Sertifikat", desc: "Mahasiswa menampilkan portofolio dan sertifikat yang bisa diverifikasi oleh mitra." },
+              { icon: "⭐", title: "Review Transparan", desc: "Ulasan dari peserta asli, tanpa manipulasi, untuk membantu kamu memilih." },
+            ].map((item) => (
+              <div key={item.title} className="flex flex-col items-center gap-3 text-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink-blue-soft text-2xl">
+                  {item.icon}
+                </div>
+                <h3 className="text-base font-bold text-ink">{item.title}</h3>
+                <p className="text-sm text-ink-soft">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Partners */}
       <section className="bg-muted py-16">
         <div className="container mx-auto max-w-[1160px] px-5">
@@ -180,6 +280,33 @@ export function LandingPage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-16 bg-ink-blue">
+        <div className="container mx-auto max-w-[600px] px-5 text-center">
+          <h2 className="text-2xl font-bold text-white">Jangan Ketinggalan Info Event Baru</h2>
+          <p className="mt-2 text-white/70">
+            Daftar newsletter, dapatkan info event & kursus terbaru langsah di email kamu.
+          </p>
+          {subscribed ? (
+            <p className="mt-6 text-white font-medium">✅ Terima kasih! Kamu sudah terdaftar.</p>
+          ) : (
+            <form onSubmit={handleSubscribe} className="mt-6 flex gap-2">
+              <Input
+                type="email"
+                placeholder="email@kamu.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 bg-white/10 text-white placeholder:text-white/50 border-white/20"
+                required
+              />
+              <Button type="submit" variant="secondary">
+                Daftar
+              </Button>
+            </form>
+          )}
         </div>
       </section>
 
