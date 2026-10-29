@@ -127,7 +127,6 @@ export function CheckoutPage() {
         </p>
         <div className="mt-6 space-y-2 text-sm text-ink-soft">
           <p>Total: {formatIDR(totalAmount)}</p>
-          <p>Komisi ({Math.round(commissionRate * 100)}%): {formatIDR(commission)}</p>
           <p>Status: {partner.name} — Verifikasi pembayaran</p>
         </div>
         <Button
@@ -269,10 +268,6 @@ export function CheckoutPage() {
                             <span>Total</span>
                             <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span>Komisi (5%)</span>
-                            <span className="font-medium text-ink-soft">{formatIDR(commission)}</span>
-                          </div>
                         </div>
                       </CardContent>
                     </Card>
@@ -302,10 +297,6 @@ export function CheckoutPage() {
                           <div className="flex justify-between">
                             <span className="text-ink-soft">Total</span>
                             <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-ink-soft">Komisi (5%)</span>
-                            <span className="font-medium text-ink-soft">{formatIDR(commission)}</span>
                           </div>
                           <div className="border-t mt-2 pt-2 flex justify-between font-bold text-ink">
                             <span>Total Bayar</span>
@@ -372,10 +363,6 @@ export function CheckoutPage() {
                 <div className="flex justify-between">
                   <span className="text-ink-soft">Total</span>
                   <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-ink-soft">Komisi (5%)</span>
-                  <span className="font-medium text-ink-soft">{formatIDR(commission)}</span>
                 </div>
               </div>
             </CardContent>
