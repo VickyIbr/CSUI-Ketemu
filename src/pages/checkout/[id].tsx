@@ -260,11 +260,11 @@ export function CheckoutPage() {
                     <Card className="border-muted">
                       <CardContent className="p-4">
                         <div className="space-y-2 text-sm">
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span>Jumlah Event</span>
                             <span className="font-medium text-ink">{qty} x {formatIDR(event.price)}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span>Total</span>
                             <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
                           </div>
@@ -282,23 +282,23 @@ export function CheckoutPage() {
                     <Card className="border-muted">
                       <CardContent className="p-4">
                         <div className="space-y-2 text-sm">
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span className="text-ink-soft">Event</span>
-                            <span className="font-medium text-ink">{event.title}</span>
+                            <span className="font-medium text-ink text-right truncate">{event.title}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span className="text-ink-soft">Tanggal</span>
-                            <span className="font-medium text-ink">{formatDateLong(event.startDate)}</span>
+                            <span className="font-medium text-ink text-right">{formatDateLong(event.startDate)}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span className="text-ink-soft">Peserta</span>
-                            <span className="font-medium text-ink">{qty}</span>
+                            <span className="font-medium text-ink text-right">{qty}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex items-center justify-between gap-4">
                             <span className="text-ink-soft">Total</span>
-                            <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
+                            <span className="font-bold text-ink text-right">{formatIDR(totalAmount)}</span>
                           </div>
-                          <div className="border-t mt-2 pt-2 flex justify-between font-bold text-ink">
+                          <div className="border-t mt-2 pt-2 flex items-center justify-between gap-4 font-bold text-ink">
                             <span>Total Bayar</span>
                             <span>{formatIDR(totalAmount)}</span>
                           </div>
@@ -347,22 +347,22 @@ export function CheckoutPage() {
             <CardContent className="p-4">
               <h3 className="font-bold text-ink">Ringkasan Pesanan</h3>
               <div className="mt-2 space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-ink-soft">Event</span>
-                  <span className="font-medium text-ink">{event.title}</span>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-ink-soft whitespace-nowrap">Event</span>
+                  <span className="font-medium text-ink text-right truncate">{event.title}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-ink-soft">Harga</span>
-                  <span className="font-medium text-ink">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</span>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-ink-soft whitespace-nowrap">Harga</span>
+                  <span className="font-medium text-ink text-right">{event.isFree || event.price === 0 ? "Gratis" : formatIDR(event.price)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-ink-soft">Qty</span>
-                  <span className="font-medium text-ink">{qty}</span>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-ink-soft whitespace-nowrap">Qty</span>
+                  <span className="font-medium text-ink text-right">{qty}</span>
                 </div>
                 <div className="border-t my-2" />
-                <div className="flex justify-between">
-                  <span className="text-ink-soft">Total</span>
-                  <span className="font-bold text-ink">{formatIDR(totalAmount)}</span>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-ink-soft whitespace-nowrap">Total</span>
+                  <span className="font-bold text-ink text-right">{formatIDR(totalAmount)}</span>
                 </div>
               </div>
             </CardContent>
