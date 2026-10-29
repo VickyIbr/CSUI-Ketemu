@@ -24,7 +24,7 @@ export function CheckoutPage() {
   const event = eventId ? getEventById(eventId) : undefined
   const partner = event ? getPartnerById(event?.partnerId) : undefined
   const eventQty = items.find((i) => i.eventId === eventId)
-  const qty = eventQty?.quantity ?? 0
+  const qty = eventQty?.quantity ?? 1
 
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
