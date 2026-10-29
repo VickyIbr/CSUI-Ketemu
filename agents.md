@@ -41,7 +41,7 @@ Routing: React Router 7 (`src/app/router.tsx`) dengan lazy-load components via `
 | Admin dashboard & pages | ✅ /admin, /admin/users, /admin/events, /admin/analytics, /admin/settings |
 | Mitra dashboard & pages | ✅ /mitra, /mitra/new-event, /mitra/events, /mitra/participants, /mitra/analytics, /mitra/settings |
 | Auth (Google OAuth) | ✅ Login/register with account picker modal |
-| Hosted | ✅ https://ketemu.vicky.id |
+| Hosted | ✅ https://ketemu.site |
 
 ---
 
@@ -68,6 +68,6 @@ npx tsc --noEmit # Type check only
 ## Deployment
 
 - **Preview:** `npx vite preview` — but it fails repeatedly with exit -1; use browser_exec against production URL instead.
-- **Production:** Vercel at https://ketemu.vicky.id
+- **Production:** Vercel at https://ketemu.site
 - **Development:** Vercel at https://development.ketemu.site
 - Every `npm run build` + push updates the live deployment.

@@ -13,7 +13,7 @@ const SITE_NAME = "KeTemu"
 const DEFAULT_TITLE = "KeTemu - Marketplace Event Edukasi"
 const DEFAULT_DESCRIPTION = "Marketplace event edukasi untuk mahasiswa dan profesional. Temukan event dan kursus terbaik dari mitra terpercaya."
 const DEFAULT_IMAGE = "/icon/pwa-icon-512.png"
-const SITE_URL = "https://ketemu.vicky.id"
+const SITE_URL = "https://ketemu.site"
 
 export function SEO({
   title,
@@ -53,6 +53,7 @@ export function SEO({
     setMeta("og:url", fullUrl, true)
     setMeta("og:type", type, true)
     setMeta("og:site_name", SITE_NAME, true)
+    setMeta("og:locale", "id_ID", true)
     setMeta("twitter:card", "summary_large_image")
     setMeta("twitter:title", fullTitle)
     setMeta("twitter:description", description)

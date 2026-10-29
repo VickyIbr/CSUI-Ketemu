@@ -27,7 +27,7 @@ export function PersonProfilePage() {
       "name": person.name,
       "description": person.bio,
       "image": person.avatarUrl,
-      "url": `https://ketemu.vicky.id/my/${person.username}`,
+      "url": `https://ketemu.site/my/${person.username}`,
       "jobTitle": person.major,
       "alumniOf": person.university ? { "@type": "EducationalOrganization", "name": person.university } : undefined,
       "sameAs": [
