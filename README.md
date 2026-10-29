@@ -94,7 +94,7 @@ src/
 
 ## 🌐 Live Preview
 
-**Production:** https://ketemu.vicky.id — deploy otomatis setiap push ke `main`.
+**Production:** https://ketemu.site — deploy otomatis setiap push ke `main`.
 **Development:** https://development.ketemu.site — preview sebelum merge ke `main`.
 
 ---

@@ -8,4 +8,4 @@ Disallow: /my/
 Disallow: /checkout/
 Disallow: /payment/
 
-Sitemap: https://ketemu.vicky.id/sitemap.xml
+Sitemap: https://ketemu.site/sitemap.xml
